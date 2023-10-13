@@ -1,0 +1,270 @@
+---
+import Layout from "../layouts/Layout.astro";
+import placesData from "../data/places.json";
+import defaultProfile from "@assets/images/fallback_profile.png";
+import { Image } from "astro:assets";
+import "../style/style.css"
+
+
+const options: { [index: string]: string } = {};
+
+placesData.forEach((ele) => {
+    if (options[ele.cat]) {
+        if (options[ele.cat] != ele.inout) {
+            options[ele.cat] = "both";
+        }
+    } else {
+        options[ele.cat] = ele.inout;
+    }
+});
+
+/*
+map link
+https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-particular-longitude-and-latitude
+*/
+---
+
+<Layout title="nmamitloop | navigation">
+    <main>
+        <!-- <section>
+            <iframe src = "https://maps.google.com/maps?q=13.1824691117,74.9335876822&hl=es;z=14&amp;output=embed"></iframe>
+        </section> -->
+        <section class="area-selector">
+            <h1 class="area" data-value="in">Inside Campus</h1>
+            <h1 class="area" data-value="out">Outside Campus</h1>
+        </section>
+        <section class="options-container">
+            <fieldset class="cat-selector">
+                <legend>category</legend>
+                <span class="option" data-area="both" data-value="all">
+                    All</span
+                >
+                {
+                    Object.entries(options).map((value: [string, string]) => {
+                        const [option, area] = value;
+                        return (
+                            <>
+                                <span
+                                    class="option"
+                                    data-value={option}
+                                    data-area={area}
+                                >
+                                    {option}
+                                </span>
+                            </>
+                        );
+                    })
+                }
+            </fieldset>
+        </section>
+        <section>
+            <input type="search" id="nav-search" />
+        </section>
+
+        <section>
+            <ul class="places-list">
+                {
+                    placesData.map((place) => {
+                        return (
+                            <li
+                                class="place-card"
+                                data-in={place.inout}
+                                data-category={place.cat}
+                            >
+                                {place.imgUrl ? (
+                                    <Image
+                                        src={place.imgUrl}
+                                        alt={place.name}
+                                        width={Math.round((100 * 16) / 9)}
+                                        height={100}
+                                        format="webp"
+                                    />
+                                ) : (
+                                    <Image
+                                        src={defaultProfile}
+                                        alt={place.name}
+                                        width={Math.round((100 * 16) / 9)}
+                                        height={100}
+                                        format="webp"
+                                        loading="lazy"
+                                    />
+                                )}
+                                <div class="detail">
+                                    <h4 class="name">{place.name}</h4>
+                                </div>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .place-card {
+        height: 8rem;
+        padding: 0.5rem 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.158);
+        border-radius: 5px;
+    }
+
+    .place-card img {
+        border-radius: 5px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .place-card .detail span {
+        padding-right: 0.5rem;
+    }
+
+    .area-selector {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }
+
+    .area {
+        cursor: pointer;
+        width: 100%;
+        padding: 0.5rem;
+        text-align: center;
+    }
+    .hidden{
+        display:none;
+    }
+</style>
+
+<script>
+    interface params {
+        area?: string | null;
+        cat?: string | null;
+        search?: string | null;
+    }
+    const navSearchBar = document.getElementById(
+        "nav-search",
+    ) as HTMLInputElement;
+    const placesList = document.querySelectorAll(".place-card");
+    const areaSeclectorList = document.querySelectorAll(".area");
+    const categoriesList = document.querySelectorAll(".option");
+    let areaSelected: string | null = "all";
+    let catSelected: string | null = "all";
+    let searchString: string | null = "";
+
+    areaSeclectorList.forEach((ele) => {
+        ele.addEventListener("click", (event) => {
+            areaSelected = ele.getAttribute("data-value");
+            updateUI();
+        });
+    });
+
+    categoriesList.forEach((ele) => {
+        ele.addEventListener("click", (event) => {
+            if (event !== null && event.target instanceof HTMLElement) {
+                catSelected = ele.getAttribute("data-value");
+                updateUI();
+            }
+        });
+    });
+
+    navSearchBar.addEventListener("input", (event) => {
+        searchString = navSearchBar.value.trim();
+        updateUI();
+    });
+
+    function updateUI() {
+        areaSeclectorList.forEach((element) => {
+            if (element.getAttribute("data-value") == areaSelected) {
+                element.classList.add("selected");
+            } else element.classList.remove("selected");
+        });
+        categoriesList.forEach((element) => {
+            if (element.getAttribute("data-value") == catSelected) {
+                element.classList.add("selected");
+            } else element.classList.remove("selected");
+            if (areaSelected != "all") {
+                const area = element.getAttribute("data-area");
+                if (area == "both" || area == areaSelected) {
+                    element.classList.remove("hidden");
+                } else element.classList.add("hidden");
+            }
+        });
+
+        placesList.forEach((element) => {
+            if (areaSelected != "all") {
+                if (element.getAttribute("data-in") != areaSelected) {
+                    element.classList.add("hidden");
+                    return;
+                }
+            }
+            
+            if (catSelected != "all") {
+                if (element.getAttribute("data-category") != catSelected) {
+                    element.classList.add("hidden");
+                    return;
+                }
+            }
+            if (searchString) {
+                const name = element
+                    .querySelector(".name")
+                    ?.textContent?.toLocaleLowerCase() as string;
+                if (!name.match(searchString as string)) {
+                    element.classList.add("hidden");
+                    return;
+                }
+            }
+            element.classList.remove("hidden");
+        });
+    }
+
+    updateUI();
+
+    // function updateUI(params: params) {
+    //     if (params.area) {
+    //         placesList.forEach((element) => {
+    //             if (element.getAttribute("data-in") == params.area)
+    //                 element.classList.remove("hidden");
+    //             else element.classList.add("hidden");
+    //         });
+    //         areaSeclectorList.forEach((element) => {
+    //             if (element.getAttribute("data-value") == params.area) {
+    //                 element.classList.add("selected");
+    //             } else element.classList.remove("selected");
+    //         });
+    //     }
+    //     if (params.cat) {
+    //         if (params.cat == "all") {
+    //             placesList.forEach((element) => {
+    //                 element.classList.remove("hidden");
+    //             });
+    //         } else {
+    //             placesList.forEach((element) => {
+    //                 if (element.getAttribute("data-category") == params.cat)
+    //                     element.classList.remove("hidden");
+    //                 else element.classList.add("hidden");
+    //             });
+    //         }
+    //         categoriesList.forEach((element) => {
+    //             if (element.getAttribute("data-value") == params.cat) {
+    //                 element.classList.add("selected");
+    //             } else element.classList.remove("selected");
+    //         });
+    //     }
+    //     if (params.search) {
+    //         placesList.forEach((content) => {
+    //             const name = content
+    //                 .querySelector(".name")
+    //                 ?.textContent?.toLocaleLowerCase() as string;
+    //             if (name.match(params.search as string))
+    //                 content.classList.remove("hidden");
+    //             else content.classList.add("hidden");
+    //         });
+    //     }
+    // }
+</script>

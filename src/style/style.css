@@ -1,0 +1,54 @@
+fieldset{
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.option {
+    min-width: 3rem;
+    text-align: center;
+    padding: 0.25rem 0.35rem;
+    cursor: pointer;
+    border: 1px solid gray;
+    margin: 0.25rem;
+    border-radius: 5px;
+}
+
+input {
+    width: 100%;
+    min-height: 2.5rem;
+    border-radius: 5px;
+    border: none;
+    border: 2px solid gray;
+    padding-left: 0.5rem;
+    font: inherit;
+    margin-bottom: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.selected {
+    border: 1px solid gold;
+    background-color: rgba(255, 217, 0, 0.178);
+}
+
+@media (min-width: 640px) { 
+
+ }
+
+ ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+section {
+    margin: 1rem auto;
+    width:100%;
+}

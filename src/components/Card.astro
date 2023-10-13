@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+interface Props {
+	title: string,
+    icon:ImageMetadata,
+    to:string
+}
+
+const { title,icon,to } = Astro.props;
+---
+
+<a class="card" href={to}>
+    <Image src={icon} alt={title} height={64} width={64} format='webp'/>
+    <span>{title}</span>
+</a>
+
+
+<style>
+    .card{
+        width:100%;
+        display: flex;
+        padding: 1rem;
+        align-items: center;
+        gap: 1rem;
+        justify-content: space-around;
+        max-width: 350px;
+        border-radius: 8px;
+        background-color: whitesmoke;
+        color:black;
+    }
+
+    .card img{
+        height: 100%;
+        aspect-ratio: 1;
+        object-position: center;
+    }
+</style>

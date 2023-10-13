@@ -1,0 +1,190 @@
+---
+import Layout from "../layouts/Layout.astro";
+import busData from "../data/bus_timings.json";
+import "../style/style.css";
+
+// function convert24To12(time:string){
+//     const [h,m]=time.split(":");
+//     let hour = parseInt(h);
+//     if(hour>12)
+//         hour -=12;
+//     const formattedHour = hour < 10 ? `0${hour}` : `${hour}`;
+//     return `${formattedHour}:${m}`;
+
+// }
+---
+
+<Layout title="nmamitloop | bus timings">
+    <main>
+        <section>
+            <h3>filters</h3>
+            <fieldset id="type-selector">
+                <legend>Type</legend>
+                <span class="option" data-value="all">All</span>
+                <span class="option" data-value="express">Express</span>
+                <span class="option" data-value="local">Local</span>
+            </fieldset>
+
+            <fieldset id="to-selector">
+                <legend>destination</legend>
+                <span class="option" data-value="all">All</span>
+                <span class="option" data-value="karkala">Karkala</span>
+                <span class="option" data-value="mangalore">Mangalore</span>
+                <span class="option" data-value="other">other</span>
+            </fieldset>
+        </section>
+        <section class="table-container">
+            <table>
+                <tr>
+                    <th>time</th>
+                    <th>name</th>
+                    <th>type</th>
+                    <th>From</th>
+                    <th>last stop</th>
+                </tr>
+
+                {
+                    busData.map((bus) => {
+                        return (
+                            <tr>
+                                <td>{bus.at_nitte}</td>
+                                <td>{bus.name}</td>
+                                <td>{bus.type}</td>
+                                <td>{bus.from}</td>
+                                <td>{bus.destination}</td>
+                            </tr>
+                        );
+                    })
+                }
+            </table>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .table-container {
+        max-width: 100%;
+        overflow-x: scroll;
+    }
+
+    tr,
+    th,
+    td {
+        border: 1px solid gray;
+    }
+
+    th,
+    td {
+        padding: 0.5rem;
+    }
+</style>
+
+<script>
+    const typeSeclector = document.getElementById("type-selector");
+    const toSeclector = document.getElementById("to-selector");
+    const tableRows = document.querySelectorAll("tr");
+    let typeSelected = "all";
+    let toSelected = "all";
+
+    typeSeclector?.querySelectorAll(".option").forEach((ele) => {
+        ele.addEventListener("click", (event) => {
+            if (event !== null && event.target instanceof HTMLElement) {
+                typeSelected = event.target.dataset.value as string;
+                updateUI();
+            }
+        });
+    });
+
+    toSeclector?.querySelectorAll(".option").forEach((ele) => {
+        ele.addEventListener("click", (event) => {
+            if (event !== null && event.target instanceof HTMLElement) {
+                toSelected = event.target.dataset.value as string;
+                updateUI();
+            }
+        });
+    });
+
+    function updateUI() {
+        typeSeclector?.querySelectorAll(".option").forEach((ele) => {
+            if (typeSelected == ele.getAttribute("data-value")) {
+                ele.classList.add("selected");
+            } else ele.classList.remove("selected");
+        });
+
+        toSeclector?.querySelectorAll(".option").forEach((ele) => {
+            if (toSelected == ele.getAttribute("data-value")) {
+                ele.classList.add("selected");
+            } else ele.classList.remove("selected");
+        });
+
+        const matchType = typeSelected == "all" ? /.*/ : typeSelected;
+        let matchTo =
+            toSelected == "all"
+                ? /.*/
+                : toSelected == "other"
+                ? /^(?!.*mangalore)(?!.*karkala).*/
+                : toSelected;
+        for (let i = 1; i < tableRows.length; i++) {
+            const type = tableRows[i]
+                .querySelectorAll("td")[2]
+                .textContent?.toLowerCase();
+            const to = tableRows[i]
+                .querySelectorAll("td")[4]
+                .textContent?.toLowerCase();
+            console.log(type, "----", to);
+            if (type?.match(matchType) && to?.match(matchTo)) {
+                tableRows[i].classList.remove("hidden");
+            } else {
+                tableRows[i].classList.add("hidden");
+            }
+        }
+    }
+
+    updateUI();
+
+    // function updateUI(category: string, value: string) {
+    //     if (category == "type") {
+    //         typeSeclector?.querySelectorAll(".option").forEach((ele) => {
+    //             if (value == ele.getAttribute("data-value")) {
+    //                 ele.classList.add("selected");
+    //                 filterList("type", value);
+    //             } else ele.classList.remove("selected");
+    //         });
+    //     } else if (category == "to") {
+    //         toSeclector?.querySelectorAll(".option").forEach((ele) => {
+    //             if (value == ele.getAttribute("data-value")) {
+    //                 ele.classList.add("selected");
+    //                 filterList("to", value);
+    //             } else ele.classList.remove("selected");
+    //         });
+    //     }
+    // }
+
+    // function filterList(category: string, key: string) {
+    //     if (category == "type") {
+    //         for (let i = 1; i < tableRows.length; i++) {
+    //             const text = tableRows[i].querySelectorAll("td")[2].textContent;
+    //             if (text?.toLocaleLowerCase().match(key)) {
+    //                 tableRows[i].classList.remove("hidden");
+    //             } else {
+    //                 console.log(text, "-----", key);
+    //                 tableRows[i].classList.add("hidden");
+    //             }
+    //         }
+    //     } else if (category == "to") {
+    //         for (let i = 1; i < tableRows.length; i++) {
+    //             const text = tableRows[i].querySelectorAll("td")[4].textContent;
+    //             if (text?.toLocaleLowerCase().match(key)) {
+    //                 tableRows[i].classList.remove("hidden");
+    //             } else {
+    //                 tableRows[i].classList.add("hidden");
+    //             }
+    //         }
+    //     }
+    // }
+</script>
