@@ -5,9 +5,9 @@
         "note": "",
         "inout": "out",
         "cat": "food",
+        "imgUrl": "",
         "lat": 13.1820038813,
-        "lng": 74.9354681253,
-        "image": "Hotel Shetty's"
+        "lng": 74.9354681253
     },
     {
         "name": "Sanmathi Cafe",
@@ -15,9 +15,9 @@
         "note": "",
         "inout": "out",
         "cat": "food",
+        "imgUrl": "",
         "lat": 13.1821980528,
-        "lng": 74.9379048159,
-        "image": "Sanmathi Cafe"
+        "lng": 74.9379048159
     },
     {
         "name": "Shabari",
@@ -25,9 +25,9 @@
         "note": "",
         "inout": "out",
         "cat": "food",
+        "imgUrl": "",
         "lat": 13.1831792365,
-        "lng": 74.9366235127,
-        "image": "Shabari"
+        "lng": 74.9366235127
     },
     {
         "name": "Harshitha",
@@ -35,9 +35,9 @@
         "note": "",
         "inout": "out",
         "cat": "food",
+        "imgUrl": "",
         "lat": 13.1835138979,
-        "lng": 74.9364896137,
-        "image": "Harshitha"
+        "lng": 74.9364896137
     },
     {
         "name": "Shisha Food Court",
@@ -45,9 +45,9 @@
         "note": "",
         "inout": "out",
         "cat": "food",
+        "imgUrl": "Shisha Food Court.jpg",
         "lat": 13.1842378485,
-        "lng": 74.9344297922,
-        "image": "Shisha Food Court"
+        "lng": 74.9344297922
     },
     {
         "name": "Oven Fresh",
@@ -55,9 +55,9 @@
         "note": "",
         "inout": "out",
         "cat": "food",
+        "imgUrl": "Oven Fresh.jpg",
         "lat": 13.1841074789,
-        "lng": 74.9331059869,
-        "image": "Oven Fresh"
+        "lng": 74.9331059869
     },
     {
         "name": "Kitchen Bells",
@@ -65,9 +65,9 @@
         "note": "",
         "inout": "in",
         "cat": "food",
+        "imgUrl": "Kitchen Bells.jpg",
         "lat": 13.1828424836,
-        "lng": 74.9333878222,
-        "image": "Kitchen Bells"
+        "lng": 74.9333878222
     },
     {
         "name": "Maggi shop",
@@ -75,9 +75,9 @@
         "note": "",
         "inout": "in",
         "cat": "food",
+        "imgUrl": "Maggi shop.jpg",
         "lat": 13.1826784831,
-        "lng": 74.9351766007,
-        "image": "Maggi shop"
+        "lng": 74.9351766007
     },
     {
         "name": "Raghanna's",
@@ -85,9 +85,9 @@
         "note": "",
         "inout": "in",
         "cat": "food",
+        "imgUrl": "Raghanna's.jpg",
         "lat": 13.1827702147,
-        "lng": 74.9337647483,
-        "image": "Raghanna's"
+        "lng": 74.9337647483
     },
     {
         "name": "NMAMIT/Shri Durga Canteen",
@@ -95,9 +95,9 @@
         "note": "",
         "inout": "in",
         "cat": "food",
+        "imgUrl": "Shri Durga Canteen.jpg",
         "lat": 13.1823166896,
-        "lng": 74.9340677418,
-        "image": "Shri Durga Canteen"
+        "lng": 74.9340677418
     },
     {
         "name": "Suprabha",
@@ -105,9 +105,9 @@
         "note": "",
         "inout": "in",
         "cat": "food",
+        "imgUrl": "Suprabha.jpg",
         "lat": 13.1827154409,
-        "lng": 74.9345218224,
-        "image": "Suprabha"
+        "lng": 74.9345218224
     },
     {
         "name": "ATREYA",
@@ -115,9 +115,9 @@
         "note": "",
         "inout": "in",
         "cat": "block",
+        "imgUrl": "ATREYA.jpg",
         "lat": 13.1826715534,
-        "lng": 74.934125634,
-        "image": "ATREYA"
+        "lng": 74.934125634
     },
     {
         "name": "ATAL",
@@ -125,9 +125,9 @@
         "note": "",
         "inout": "in",
         "cat": "block",
+        "imgUrl": "ATAL.jpg",
         "lat": 13.1825814686,
-        "lng": 74.9348349772,
-        "image": "ATAL"
+        "lng": 74.9348349772
     },
     {
         "name": "CV Raman/CVR",
@@ -135,9 +135,9 @@
         "note": "First years'",
         "inout": "in",
         "cat": "block",
+        "imgUrl": "",
         "lat": 13.1829033425,
-        "lng": 74.9332706499,
-        "image": "CVR"
+        "lng": 74.9332706499
     },
     {
         "name": "SIR M VISVESVARAYA/VIS",
@@ -145,19 +145,19 @@
         "note": "CIVIL/EE",
         "inout": "in",
         "cat": "block",
+        "imgUrl": "VIS.jpg",
         "lat": 13.1824691117,
-        "lng": 74.9335876822,
-        "image": "VIS"
+        "lng": 74.9335876822
     },
     {
         "name": "S RAMANUJAN/RAM",
         "phone": 0,
         "note": "MECH/EC",
-        "inout": "in",
+        "inout": null,
         "cat": "block",
+        "imgUrl": "RAM.jpg",
         "lat": 13.1830109152,
-        "lng": 74.933942918,
-        "image": "RAM"
+        "lng": 74.933942918
     },
     {
         "name": "APJ KALAM/APJ",
@@ -165,9 +165,9 @@
         "note": "CS/IS/BT",
         "inout": "in",
         "cat": "block",
+        "imgUrl": "APJ.jpg",
         "lat": 13.1833178219,
-        "lng": 74.9336561878,
-        "image": "APJ"
+        "lng": 74.9336561878
     },
     {
         "name": "Shambhavi hall",
@@ -175,9 +175,9 @@
         "note": "",
         "inout": "in",
         "cat": "hall",
+        "imgUrl": "Shambhavi hall.jpg",
         "lat": 13.1835123439,
-        "lng": 74.9335206758,
-        "image": "Shambhavi hall"
+        "lng": 74.9335206758
     },
     {
         "name": "Phalguni",
@@ -185,19 +185,19 @@
         "note": "",
         "inout": "in",
         "cat": "hall",
+        "imgUrl": "Phalguni.jpg",
         "lat": 13.1830003432,
-        "lng": 74.9341418605,
-        "image": "Phalguni"
+        "lng": 74.9341418605
     },
     {
         "name": "Sowparnika",
         "phone": 0,
         "note": "",
-        "inout": "in",
+        "inout": null,
         "cat": "hall",
+        "imgUrl": "Sowparnika.jpg",
         "lat": 13.1830003432,
-        "lng": 74.9341418605,
-        "image": "Sowparnika"
+        "lng": 74.9341418605
     },
     {
         "name": "Sambhram hall",
@@ -205,9 +205,9 @@
         "note": "",
         "inout": "in",
         "cat": "hall",
+        "imgUrl": "Sambhram hall.jpg",
         "lat": 13.1830003432,
-        "lng": 74.9341418605,
-        "image": "Sambhram hall"
+        "lng": 74.9341418605
     },
     {
         "name": "Sadananda hall",
@@ -215,9 +215,9 @@
         "note": "",
         "inout": "in",
         "cat": "hall",
+        "imgUrl": "Sadananda hall.jpg",
         "lat": 13.1827544607,
-        "lng": 74.9353168966,
-        "image": "Sadananda hall"
+        "lng": 74.9353168966
     },
     {
         "name": "MCA Seminar hall",
@@ -225,19 +225,19 @@
         "note": "",
         "inout": "in",
         "cat": "hall",
+        "imgUrl": "MCA Seminar hall.jpg",
         "lat": 13.1830003432,
-        "lng": 74.9341418605,
-        "image": "MCA Seminar hall"
+        "lng": 74.9341418605
     },
     {
         "name": "Central library",
         "phone": 0,
         "note": "1st floor, RAM",
-        "inout": "in",
+        "inout": null,
         "cat": "library",
+        "imgUrl": "Central library.jpg",
         "lat": 13.1830003432,
-        "lng": 74.9341418605,
-        "image": "Central library"
+        "lng": 74.9341418605
     },
     {
         "name": "Research Lab",
@@ -245,9 +245,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "Research Lab.jpg",
         "lat": 13.1833229338,
-        "lng": 74.9336073629,
-        "image": "Research Lab"
+        "lng": 74.9336073629
     },
     {
         "name": "Metallurgy Lab",
@@ -255,9 +255,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "Metallurgy Lab.jpg",
         "lat": 13.1825622651,
-        "lng": 74.9348144304,
-        "image": "Metallurgy Lab"
+        "lng": 74.9348144304
     },
     {
         "name": "Chemistry Lab",
@@ -265,9 +265,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "Chemistry Lab.jpg",
         "lat": 13.1829883209,
-        "lng": 74.9338688551,
-        "image": "Chemistry Lab"
+        "lng": 74.9338688551
     },
     {
         "name": "CAD/CAE/CFD Lab",
@@ -275,9 +275,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "CFD Lab.jpg",
         "lat": 13.1829708486,
-        "lng": 74.9339668636,
-        "image": "CFD Lab"
+        "lng": 74.9339668636
     },
     {
         "name": "Physics Lab",
@@ -285,9 +285,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "Physics Lab.jpg",
         "lat": 13.1829883209,
-        "lng": 74.9338688551,
-        "image": "Physics Lab"
+        "lng": 74.9338688551
     },
     {
         "name": "VLSI Lab",
@@ -295,9 +295,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "VLSI Lab.jpg",
         "lat": 13.1830985308,
-        "lng": 74.9342512264,
-        "image": "VLSI Lab"
+        "lng": 74.9342512264
     },
     {
         "name": "ARM PROCESSOR Lab",
@@ -305,9 +305,9 @@
         "note": "2",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "ARM PROCESSOR Lab.jpg",
         "lat": 13.1830985308,
-        "lng": 74.9342512264,
-        "image": "ARM PROCESSOR Lab"
+        "lng": 74.9342512264
     },
     {
         "name": "Power Electronics Lab",
@@ -315,9 +315,9 @@
         "note": "3",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "Power Electronics Lab.jpg",
         "lat": 13.1830985308,
-        "lng": 74.9342512264,
-        "image": "Power Electronics Lab"
+        "lng": 74.9342512264
     },
     {
         "name": "Communication and Microwave Lab",
@@ -325,9 +325,9 @@
         "note": "3",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "Communication and Microwave Lab.jpg",
         "lat": 13.1830985308,
-        "lng": 74.9342512264,
-        "image": "Communication and Microwave Lab"
+        "lng": 74.9342512264
     },
     {
         "name": "Microprocessor/HDL Lab",
@@ -335,9 +335,9 @@
         "note": "3",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "HDL Lab.jpg",
         "lat": 13.1830985308,
-        "lng": 74.9342512264,
-        "image": "HDL Lab"
+        "lng": 74.9342512264
     },
     {
         "name": "Project Lab 1",
@@ -345,9 +345,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "Project Lab 1.jpg",
         "lat": 13.1830985308,
-        "lng": 74.9342512264,
-        "image": "Project Lab 1"
+        "lng": 74.9342512264
     },
     {
         "name": "Digital Signal Processing Lab",
@@ -355,9 +355,9 @@
         "note": "3",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "Digital Signal Processing Lab.jpg",
         "lat": 13.1830985308,
-        "lng": 74.9342512264,
-        "image": "Digital Signal Processing Lab"
+        "lng": 74.9342512264
     },
     {
         "name": "DSA Lab",
@@ -365,9 +365,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "DSA Lab.jpg",
         "lat": 13.1825851135,
-        "lng": 74.9348061479,
-        "image": "DSA Lab"
+        "lng": 74.9348061479
     },
     {
         "name": "Network Security Lab",
@@ -375,9 +375,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "Network Security Lab.jpg",
         "lat": 13.1825851135,
-        "lng": 74.9348061479,
-        "image": "Network Security Lab"
+        "lng": 74.9348061479
     },
     {
         "name": "Web/Unix Programming Lab",
@@ -385,9 +385,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "Unix Programming Lab.jpg",
         "lat": 13.1825851135,
-        "lng": 74.9348061479,
-        "image": "Unix Programming Lab"
+        "lng": 74.9348061479
     },
     {
         "name": "FAB Lab",
@@ -395,9 +395,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "FAB Lab.jpg",
         "lat": 13.1825851135,
-        "lng": 74.9348061479,
-        "image": "FAB Lab"
+        "lng": 74.9348061479
     },
     {
         "name": "MCA Computer Lab-4",
@@ -405,9 +405,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "MCA Computer Lab-4.jpg",
         "lat": 13.1833229338,
-        "lng": 74.9336073629,
-        "image": "MCA Computer Lab-4"
+        "lng": 74.9336073629
     },
     {
         "name": "MCA Computer Lab-1",
@@ -415,9 +415,9 @@
         "note": "",
         "inout": "in",
         "cat": "lab",
+        "imgUrl": "MCA Computer Lab-1.jpg",
         "lat": 13.1833229338,
-        "lng": 74.9336073629,
-        "image": "MCA Computer Lab-1"
+        "lng": 74.9336073629
     },
     {
         "name": "Canara Bank",
@@ -425,9 +425,9 @@
         "note": "",
         "inout": "in",
         "cat": "other",
+        "imgUrl": "Canara Bank.jpg",
         "lat": 13.1837674485,
-        "lng": 74.9333987216,
-        "image": "Canara Bank"
+        "lng": 74.9333987216
     },
     {
         "name": "Research and Innovation Centre",
@@ -435,9 +435,9 @@
         "note": "",
         "inout": "in",
         "cat": "other",
+        "imgUrl": "Research and Innovation Centre.jpg",
         "lat": 13.1836424547,
-        "lng": 74.9331806181,
-        "image": "Research and Innovation Centre"
+        "lng": 74.9331806181
     },
     {
         "name": "Resident Engineer's Office",
@@ -445,9 +445,9 @@
         "note": "",
         "inout": "in",
         "cat": "other",
+        "imgUrl": "Resident Engineer's Office.jpg",
         "lat": 13.1822444111,
-        "lng": 74.9343052595,
-        "image": "Resident Engineer's Office"
+        "lng": 74.9343052595
     },
     {
         "name": "Post Office",
@@ -455,9 +455,9 @@
         "note": "",
         "inout": "in",
         "cat": "other",
+        "imgUrl": "Post Office.jpg",
         "lat": 13.1835171456,
-        "lng": 74.9331032198,
-        "image": "Post Office"
+        "lng": 74.9331032198
     },
     {
         "name": "SAC",
@@ -465,9 +465,9 @@
         "note": "",
         "inout": "in",
         "cat": "other",
+        "imgUrl": "SAC.jpg",
         "lat": 13.1828242317,
-        "lng": 74.9337794077,
-        "image": "SAC"
+        "lng": 74.9337794077
     },
     {
         "name": "CFSD",
@@ -475,9 +475,9 @@
         "note": "",
         "inout": "in",
         "cat": "other",
+        "imgUrl": "CFSD.jpg",
         "lat": 13.1833229338,
-        "lng": 74.9336073629,
-        "image": "CFSD"
+        "lng": 74.9336073629
     },
     {
         "name": "NAIN",
@@ -485,9 +485,9 @@
         "note": "",
         "inout": "in",
         "cat": "other",
+        "imgUrl": "NAIN.jpg",
         "lat": 13.1825658804,
-        "lng": 74.9349184923,
-        "image": "NAIN"
+        "lng": 74.9349184923
     },
     {
         "name": "Entrepreneurship Development Cell",
@@ -495,9 +495,9 @@
         "note": "",
         "inout": "in",
         "cat": "other",
+        "imgUrl": "Entrepreneurship Development Cell.jpg",
         "lat": 13.1825188729,
-        "lng": 74.9347005628,
-        "image": "Entrepreneurship Development Cell"
+        "lng": 74.9347005628
     },
     {
         "name": "Atal Incubation Centre",
@@ -505,9 +505,9 @@
         "note": "",
         "inout": "in",
         "cat": "other",
+        "imgUrl": "Atal Incubation Centre.jpg",
         "lat": 13.1824968821,
-        "lng": 74.934774911,
-        "image": "Atal Incubation Centre"
+        "lng": 74.934774911
     },
     {
         "name": "Xerox 1",
@@ -515,9 +515,9 @@
         "note": "",
         "inout": "in",
         "cat": "print",
+        "imgUrl": "",
         "lat": 13.1833229338,
-        "lng": 74.9336073629,
-        "image": "Xerox 1"
+        "lng": 74.9336073629
     },
     {
         "name": "Xerox 2",
@@ -525,9 +525,9 @@
         "note": "ground floor",
         "inout": "in",
         "cat": "print",
+        "imgUrl": "",
         "lat": 13.1828296066,
-        "lng": 74.9332683741,
-        "image": "Xerox 2"
+        "lng": 74.9332683741
     },
     {
         "name": "Ground Zero cyber",
@@ -535,9 +535,9 @@
         "note": "print/xerox/gznitte@gmail.com",
         "inout": "out",
         "cat": "print",
+        "imgUrl": "",
         "lat": 13.183406595,
-        "lng": 74.9365623436,
-        "image": "Ground Zero cyber"
+        "lng": 74.9365623436
     },
     {
         "name": "Sanmathi garden",
@@ -545,9 +545,9 @@
         "note": "",
         "inout": "out",
         "cat": "hangout",
+        "imgUrl": "",
         "lat": 13.1815501221,
-        "lng": 74.9379710859,
-        "image": "Sanmathi garden"
+        "lng": 74.9379710859
     },
     {
         "name": "Clinic",
@@ -555,9 +555,9 @@
         "note": "ground floor",
         "inout": "in",
         "cat": "other",
+        "imgUrl": "",
         "lat": 13.1831046896,
-        "lng": 74.9345962496,
-        "image": "Clinic"
+        "lng": 74.9345962496
     },
     {
         "name": "BC Alva Sports Complex",
@@ -565,9 +565,9 @@
         "note": "",
         "inout": "out",
         "cat": "sport",
+        "imgUrl": "BC Alva Sports Complex.jpg",
         "lat": 13.1801995187,
-        "lng": 74.9349375934,
-        "image": "BC Alva Sports Complex"
+        "lng": 74.9349375934
     },
     {
         "name": "BC Alva Memorial Indoor Stadium",
@@ -575,9 +575,9 @@
         "note": "",
         "inout": "out",
         "cat": "sport",
+        "imgUrl": "",
         "lat": 13.1825517765,
-        "lng": 74.9387159226,
-        "image": "BC Alva Memorial Indoor Stadium"
+        "lng": 74.9387159226
     },
     {
         "name": "NET Gents Main Hostel- Block 3",
@@ -585,9 +585,9 @@
         "note": "",
         "inout": "out",
         "cat": "hostel",
+        "imgUrl": "",
         "lat": 13.1837142464,
-        "lng": 74.9388146832,
-        "image": "NET Gents Main Hostel- Block 3"
+        "lng": 74.9388146832
     },
     {
         "name": "NET PG Girls Hostel",
@@ -595,9 +595,9 @@
         "note": "",
         "inout": "out",
         "cat": "hostel",
+        "imgUrl": "",
         "lat": 13.182788047,
-        "lng": 74.9366512206,
-        "image": "NET PG Girls Hostel"
+        "lng": 74.9366512206
     },
     {
         "name": "Sri Durga General Store",
@@ -605,19 +605,19 @@
         "note": "",
         "inout": "out",
         "cat": "shop",
+        "imgUrl": "Sri Durga General Store.jpg",
         "lat": 13.1847247127,
-        "lng": 74.936141207,
-        "image": "Sri Durga General Store"
+        "lng": 74.936141207
     },
     {
         "name": "Shabari store",
         "phone": 0,
         "note": "",
-        "inout": "out",
+        "inout": null,
         "cat": "shop",
+        "imgUrl": "",
         "lat": 13.1831960614,
-        "lng": 74.9365755534,
-        "image": "Shabari store"
+        "lng": 74.9365755534
     },
     {
         "name": "Nitte Co-op store",
@@ -625,9 +625,9 @@
         "note": "",
         "inout": "in",
         "cat": "shop",
+        "imgUrl": "Nitte Co-op store.jpg",
         "lat": 13.1824666077,
-        "lng": 74.9346192903,
-        "image": "Nitte Co-op store"
+        "lng": 74.9346192903
     },
     {
         "name": "Rohan's canteen & shop",
@@ -635,9 +635,9 @@
         "note": "",
         "inout": "out",
         "cat": "shop",
+        "imgUrl": "Rohan's canteen & shop.jpg",
         "lat": 13.1817310779,
-        "lng": 74.9341996539,
-        "image": "Rohan's canteen & shop"
+        "lng": 74.9341996539
     },
     {
         "name": "Hotel Sri Durga Prasad",
@@ -645,9 +645,9 @@
         "note": "",
         "inout": "out",
         "cat": "food",
+        "imgUrl": "",
         "lat": 13.1845937866,
-        "lng": 74.9362244157,
-        "image": "Hotel Sri Durga Prasad"
+        "lng": 74.9362244157
     },
     {
         "name": "Pavi Digital Studio",
@@ -655,9 +655,9 @@
         "note": "",
         "inout": "out",
         "cat": "other",
+        "imgUrl": "",
         "lat": 13.1845789936,
-        "lng": 74.9362261421,
-        "image": "Pavi Digital Studio"
+        "lng": 74.9362261421
     },
     {
         "name": "Nitte fancy",
@@ -665,9 +665,9 @@
         "note": "",
         "inout": "out",
         "cat": "shop",
+        "imgUrl": "Nitte fancy.jpg",
         "lat": 13.1845392689,
-        "lng": 74.9361878919,
-        "image": "Nitte fancy"
+        "lng": 74.9361878919
     },
     {
         "name": "Sri Durga Mens Parlour",
@@ -675,9 +675,9 @@
         "note": "Closed on Tuesdays",
         "inout": "out",
         "cat": "other",
+        "imgUrl": "Sri Durga Mens Parlour.jpg",
         "lat": 13.184542113,
-        "lng": 74.9361565321,
-        "image": "Sri Durga Mens Parlour"
+        "lng": 74.9361565321
     },
     {
         "name": "Om Sai general store",
@@ -685,19 +685,19 @@
         "note": "",
         "inout": "out",
         "cat": "shop",
+        "imgUrl": "Om Sai general store.jpg",
         "lat": 13.1845367861,
-        "lng": 74.9361878919,
-        "image": "Om Sai general store"
+        "lng": 74.9361878919
     },
     {
         "name": "Malasa Footware",
         "phone": -2147483648,
         "note": "",
-        "inout": "out",
+        "inout": null,
         "cat": "shop",
+        "imgUrl": "Malasa Footware.jpg",
         "lat": 13.184943157,
-        "lng": 74.9361066622,
-        "image": "Malasa Footware"
+        "lng": 74.9361066622
     },
     {
         "name": "Hegde corner",
@@ -705,9 +705,9 @@
         "note": "",
         "inout": "out",
         "cat": "food",
+        "imgUrl": "Hegde corner.jpg",
         "lat": 13.1853345021,
-        "lng": 74.936904902,
-        "image": "Hegde corner"
+        "lng": 74.936904902
     },
     {
         "name": "Shrajan store",
@@ -715,9 +715,9 @@
         "note": "",
         "inout": "out",
         "cat": "shop",
+        "imgUrl": "Shrajan store.jpg",
         "lat": 13.1857945558,
-        "lng": 74.9389273375,
-        "image": "Shrajan store"
+        "lng": 74.9389273375
     },
     {
         "name": "Janani hairdresser",
@@ -725,9 +725,9 @@
         "note": "",
         "inout": "out",
         "cat": "shop",
+        "imgUrl": "Janani hairdresser.jpg",
         "lat": 13.185893936,
-        "lng": 74.9388935356,
-        "image": "Janani hairdresser"
+        "lng": 74.9388935356
     },
     {
         "name": "Porlu collections",
@@ -735,19 +735,19 @@
         "note": "",
         "inout": "out",
         "cat": "shop",
+        "imgUrl": "Porlu collections.jpg",
         "lat": 13.185838589,
-        "lng": 74.939043351,
-        "image": "Porlu collections"
+        "lng": 74.939043351
     },
     {
         "name": "Kamath Store",
         "phone": -2147483648,
         "note": "",
-        "inout": "out",
+        "inout": null,
         "cat": "shop",
+        "imgUrl": "Kamath Store.jpg",
         "lat": 13.1858519904,
-        "lng": 74.9391691961,
-        "image": "Kamath Store"
+        "lng": 74.9391691961
     },
     {
         "name": "NVS stores",
@@ -755,9 +755,9 @@
         "note": "",
         "inout": "out",
         "cat": "shop",
+        "imgUrl": "NVS stores.jpg",
         "lat": 13.1858214488,
-        "lng": 74.9393513532,
-        "image": "NVS stores"
+        "lng": 74.9393513532
     },
     {
         "name": "Radha Krishna hotel",
@@ -765,9 +765,9 @@
         "note": "",
         "inout": "out",
         "cat": "food",
+        "imgUrl": "Radha Krishna hotel.jpg",
         "lat": 13.1854438374,
-        "lng": 74.938473671,
-        "image": "Radha Krishna hotel"
+        "lng": 74.938473671
     },
     {
         "name": "Menz Addict",
@@ -775,9 +775,9 @@
         "note": "clothes n shit",
         "inout": "out",
         "cat": "shop",
+        "imgUrl": "Menz Addict.jpg",
         "lat": 13.1853916074,
-        "lng": 74.9383932047,
-        "image": "Menz Addict"
+        "lng": 74.9383932047
     },
     {
         "name": "Pingara hair dressers",
@@ -785,9 +785,9 @@
         "note": "",
         "inout": "out",
         "cat": "other",
+        "imgUrl": "Pingara hair dressers.jpg",
         "lat": 13.1854542834,
-        "lng": 74.9382778697,
-        "image": "Pingara hair dressers"
+        "lng": 74.9382778697
     },
     {
         "name": "Kateeleshwari food corner",
@@ -795,19 +795,19 @@
         "note": "",
         "inout": "out",
         "cat": "food",
+        "imgUrl": "Kateeleshwari food corner.jpg",
         "lat": 13.1854020534,
-        "lng": 74.9382054501,
-        "image": "Kateeleshwari food corner"
+        "lng": 74.9382054501
     },
     {
         "name": "Kateeleshwari fruits",
         "phone": -2147483648,
         "note": "",
-        "inout": "out",
+        "inout": null,
         "cat": "shop",
+        "imgUrl": "Kateeleshwari fruits.jpg",
         "lat": 13.1854098879,
-        "lng": 74.9379667335,
-        "image": "Kateeleshwari fruits"
+        "lng": 74.9379667335
     },
     {
         "name": "Government hospital",
@@ -815,9 +815,9 @@
         "note": "",
         "inout": "out",
         "cat": "med",
+        "imgUrl": "Government hospital.jpg",
         "lat": 13.1868011722,
-        "lng": 74.9386888551,
-        "image": "Government hospital"
+        "lng": 74.9386888551
     },
     {
         "name": "Bus stop",
@@ -825,9 +825,9 @@
         "note": "",
         "inout": "out",
         "cat": "stop",
+        "imgUrl": "",
         "lat": 13.1840813373,
-        "lng": 74.9349180856,
-        "image": "Bus stop"
+        "lng": 74.9349180856
     },
     {
         "name": "Auto stand",
@@ -835,19 +835,19 @@
         "note": "",
         "inout": "out",
         "cat": "stop",
+        "imgUrl": "",
         "lat": 13.1842682109,
-        "lng": 74.935179559,
-        "image": "Auto stand"
+        "lng": 74.935179559
     },
     {
         "name": "Iyengar bakery",
         "phone": 0,
         "note": "",
-        "inout": "out",
+        "inout": null,
         "cat": "shop",
+        "imgUrl": "Iyengar bakery.jpg",
         "lat": 13.1845440336,
-        "lng": 74.9362382473,
-        "image": "Iyengar bakery"
+        "lng": 74.9362382473
     },
     {
         "name": "Crystal Clean",
@@ -855,9 +855,9 @@
         "note": "",
         "inout": "out",
         "cat": "vehicle",
+        "imgUrl": "Crystal Clean.jpg",
         "lat": 13.1849921964,
-        "lng": 74.9301545805,
-        "image": "Crystal Clean"
+        "lng": 74.9301545805
     },
     {
         "name": "Nitte Laxmi Fuels",
@@ -865,9 +865,9 @@
         "note": "",
         "inout": "out",
         "cat": "vehicle",
+        "imgUrl": "",
         "lat": 13.1853415828,
-        "lng": 74.9394025262,
-        "image": "Nitte Laxmi Fuels"
+        "lng": 74.9394025262
     },
     {
         "name": "Om Sai Ram Auto Works",
@@ -875,9 +875,9 @@
         "note": "",
         "inout": "out",
         "cat": "vehicle",
+        "imgUrl": "",
         "lat": 13.1851488663,
-        "lng": 74.9464619187,
-        "image": "Om Sai Ram Auto Works"
+        "lng": 74.9464619187
     },
     {
         "name": "Nitte Boys PG",
@@ -885,9 +885,9 @@
         "note": "",
         "inout": "out",
         "cat": "hostel",
+        "imgUrl": "Nitte Boys PG.jpg",
         "lat": 13.180676199,
-        "lng": 74.9358862091,
-        "image": "Nitte Boys PG"
+        "lng": 74.9358862091
     },
     {
         "name": "Ratna's",
@@ -895,28 +895,28 @@
         "note": "",
         "inout": "out",
         "cat": "food",
+        "imgUrl": "Ratna's.jpg",
         "lat": 13.1852182333,
-        "lng": 74.9397977683,
-        "image": "Ratna's"
+        "lng": 74.9397977683
     },
     {
         "name": "Nitte Co-op store",
         "phone": 0,
         "note": "",
-        "inout": "out",
+        "inout": "in",
         "cat": "shop",
+        "imgUrl": "",
         "lat": 0.0,
-        "lng": 0.0,
-        "image": "Nitte Co-op store"
+        "lng": 0.0
     },
     {
         "name": "Nitte Co-op store",
         "phone": 0,
         "note": "",
-        "inout": "out",
+        "inout": "in",
         "cat": "shop",
+        "imgUrl": "",
         "lat": 0.0,
-        "lng": 0.0,
-        "image": "Nitte Co-op store"
+        "lng": 0.0
     }
 ]

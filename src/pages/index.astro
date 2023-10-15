@@ -1,18 +1,23 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import busIcon from "/src/assets/icons/icons8-bus-64.png"
-import navIcon from "/src/assets/icons/icons8-map-marker-64.png"
-import notesIcon from "/src/assets/icons/icons8-notebooks-64.png"
-import teacherIcon from "/src/assets/icons/teacher.png"
+import Layout from '@layouts/Layout.astro';
+import Card from '@components/Card.astro';
+import busIcon from "@assets/icons/icons8-bus-64.png"
+import navIcon from "@assets/icons/icons8-map-marker-64.png"
+import notesIcon from "@assets/icons/icons8-notebooks-64.png"
+import teacherIcon from "@assets/icons/teacher.png"
 ---
 
 <Layout title='nmamitloop'>
     <main>
-        <Card title="Campus Map" icon={navIcon} to="/navigation"/>
+        <section>
+            
+        </section>
+        <section>
+            <Card title="Campus Map" icon={navIcon} to="/navigation"/>
         <Card title="Teachers" icon={teacherIcon} to="/teachers"/>
         <Card title="bus timings" icon={busIcon} to="/bus"/>
         <Card title="notes" icon={notesIcon} to="/teachers"/>
+        </section>
     </main>
 </Layout>
 
@@ -24,3 +29,13 @@ import teacherIcon from "/src/assets/icons/teacher.png"
         align-items: center;
     }
 </style>
+
+<script>
+    const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+
+            }
+        })
+    })
+</script>

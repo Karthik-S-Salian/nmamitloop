@@ -1,10 +1,37 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import placesData from "../data/places.json";
-import defaultProfile from "@assets/images/fallback_profile.png";
+import Layout from "@layouts/Layout.astro";
+import placesData from "@data/places.json";
 import { Image } from "astro:assets";
-import "../style/style.css"
+import "@style/style.css";
+import buildingFallback from "@assets/images/building.jpg";
 
+type placeType = {
+    name: string;
+    phone: number;
+    note: string;
+    inout: string;
+    cat: string;
+    image: string | ImageMetadata;
+    lat: number;
+    lng: number;
+};
+
+const images: { [index: string]: any } = {};
+await Astro.glob("/src/assets/images/*.jpg").then((files) => {
+    files.forEach((file) => {
+        const name = file.default.src.split(".")[0].split("/").pop();
+        images[name] = file.default;
+    });
+});
+
+placesData.forEach((place: placeType) => {
+    const image = images[place.name.split("/").pop() as string];
+    if (image) {
+        place.image = image;
+    } else {
+        place.image = buildingFallback;
+    }
+});
 
 const options: { [index: string]: string } = {};
 
@@ -64,31 +91,21 @@ https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-
         <section>
             <ul class="places-list">
                 {
-                    placesData.map((place) => {
+                    placesData.map((place: placeType) => {
                         return (
                             <li
                                 class="place-card"
                                 data-in={place.inout}
                                 data-category={place.cat}
                             >
-                                {place.imgUrl ? (
-                                    <Image
-                                        src={place.imgUrl}
-                                        alt={place.name}
-                                        width={Math.round((100 * 16) / 9)}
-                                        height={100}
-                                        format="webp"
-                                    />
-                                ) : (
-                                    <Image
-                                        src={defaultProfile}
-                                        alt={place.name}
-                                        width={Math.round((100 * 16) / 9)}
-                                        height={100}
-                                        format="webp"
-                                        loading="lazy"
-                                    />
-                                )}
+                                <Image
+                                    src={place.image as string}
+                                    alt={place.name}
+                                    width={Math.round((100 * 16) / 9)}
+                                    height={100}
+                                    format="webp"
+                                    loading="lazy"
+                                />
                                 <div class="detail">
                                     <h4 class="name">{place.name}</h4>
                                 </div>
@@ -136,30 +153,31 @@ https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-
         padding: 0.5rem;
         text-align: center;
     }
-    .hidden{
-        display:none;
+
+    .hidden {
+        display: none;
+    }
+
+    .area-selected {
+        border-bottom: 4px solid green;
     }
 </style>
 
 <script>
-    interface params {
-        area?: string | null;
-        cat?: string | null;
-        search?: string | null;
-    }
     const navSearchBar = document.getElementById(
         "nav-search",
     ) as HTMLInputElement;
     const placesList = document.querySelectorAll(".place-card");
     const areaSeclectorList = document.querySelectorAll(".area");
     const categoriesList = document.querySelectorAll(".option");
-    let areaSelected: string | null = "all";
+    let areaSelected: string | null = "in";
     let catSelected: string | null = "all";
     let searchString: string | null = "";
 
     areaSeclectorList.forEach((ele) => {
         ele.addEventListener("click", (event) => {
             areaSelected = ele.getAttribute("data-value");
+            catSelected = "all";
             updateUI();
         });
     });
@@ -181,29 +199,25 @@ https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-
     function updateUI() {
         areaSeclectorList.forEach((element) => {
             if (element.getAttribute("data-value") == areaSelected) {
-                element.classList.add("selected");
-            } else element.classList.remove("selected");
+                element.classList.add("area-selected");
+            } else element.classList.remove("area-selected");
         });
         categoriesList.forEach((element) => {
             if (element.getAttribute("data-value") == catSelected) {
                 element.classList.add("selected");
             } else element.classList.remove("selected");
-            if (areaSelected != "all") {
-                const area = element.getAttribute("data-area");
-                if (area == "both" || area == areaSelected) {
-                    element.classList.remove("hidden");
-                } else element.classList.add("hidden");
-            }
+            const area = element.getAttribute("data-area");
+            if (area == "both" || area == areaSelected) {
+                element.classList.remove("hidden");
+            } else element.classList.add("hidden");
         });
 
         placesList.forEach((element) => {
-            if (areaSelected != "all") {
-                if (element.getAttribute("data-in") != areaSelected) {
-                    element.classList.add("hidden");
-                    return;
-                }
+            if (element.getAttribute("data-in") != areaSelected) {
+                element.classList.add("hidden");
+                return;
             }
-            
+
             if (catSelected != "all") {
                 if (element.getAttribute("data-category") != catSelected) {
                     element.classList.add("hidden");
@@ -224,47 +238,5 @@ https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-
     }
 
     updateUI();
-
-    // function updateUI(params: params) {
-    //     if (params.area) {
-    //         placesList.forEach((element) => {
-    //             if (element.getAttribute("data-in") == params.area)
-    //                 element.classList.remove("hidden");
-    //             else element.classList.add("hidden");
-    //         });
-    //         areaSeclectorList.forEach((element) => {
-    //             if (element.getAttribute("data-value") == params.area) {
-    //                 element.classList.add("selected");
-    //             } else element.classList.remove("selected");
-    //         });
-    //     }
-    //     if (params.cat) {
-    //         if (params.cat == "all") {
-    //             placesList.forEach((element) => {
-    //                 element.classList.remove("hidden");
-    //             });
-    //         } else {
-    //             placesList.forEach((element) => {
-    //                 if (element.getAttribute("data-category") == params.cat)
-    //                     element.classList.remove("hidden");
-    //                 else element.classList.add("hidden");
-    //             });
-    //         }
-    //         categoriesList.forEach((element) => {
-    //             if (element.getAttribute("data-value") == params.cat) {
-    //                 element.classList.add("selected");
-    //             } else element.classList.remove("selected");
-    //         });
-    //     }
-    //     if (params.search) {
-    //         placesList.forEach((content) => {
-    //             const name = content
-    //                 .querySelector(".name")
-    //                 ?.textContent?.toLocaleLowerCase() as string;
-    //             if (name.match(params.search as string))
-    //                 content.classList.remove("hidden");
-    //             else content.classList.add("hidden");
-    //         });
-    //     }
-    // }
 </script>
+    

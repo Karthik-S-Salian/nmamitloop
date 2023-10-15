@@ -1,7 +1,7 @@
 [
     {
         "name": "Karthik Pai B. H.",
-        "branch": "ISE (HOD)",
+        "branch": "ISE",
         "block": "APJ",
         "floor": "5",
         "imgUrl": "https://nitte.edu.in/admin/photo/3/faculty/8/176.jpg"
@@ -499,8 +499,8 @@
     {
         "name": "Rajashree",
         "branch": "CSE",
-        "block": "NW",
-        "floor": "0",
+        "block": "CVR",
+        "floor": "3",
         "imgUrl": "https://nitte.edu.in/admin/photo/3/faculty/5/92.jpg"
     },
     {
@@ -534,8 +534,8 @@
     {
         "name": "Soumya Ashwath",
         "branch": "CSE",
-        "block": "NW",
-        "floor": "0",
+        "block": "APJ",
+        "floor": "4",
         "imgUrl": "https://nitte.edu.in/admin/photo/3/faculty/5/2295.jpg"
     },
     {
@@ -1156,9 +1156,9 @@
     },
     {
         "name": "Sowmya P",
-        "branch": "RAI",
-        "block": "",
-        "floor": "",
+        "branch": "CSE",
+        "block": "CVR",
+        "floor": "3",
         "imgUrl": "https://nitte.edu.in/admin/photo/3/faculty/168/2292.jpg"
     },
     {
