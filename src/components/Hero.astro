@@ -1,0 +1,71 @@
+<section class="hero">
+    <h1 class="logo">
+        NMAMITL
+        <span class="eye"></span>
+        <span class="eye"></span>P
+    </h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        illum ex esse cumque, perspiciatis quisquam
+    </p>
+</section>
+
+<style>
+    .logo {
+        font-size: 30px;
+    }
+    .eye {
+        padding: 0;
+        margin: 0;
+        position: relative;
+        display: inline-block;
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+        background: #ffffff;
+    }
+
+    .eye:after {
+        position: absolute;
+        bottom: 15px;
+        right: 8px;
+        width: 8px;
+        height: 8px;
+        background: #000;
+        border-radius: 50%;
+        content: " ";
+    }
+
+    .hero {
+        background-color:#002233;
+        width: 100%;
+        height: 80vh;
+        min-height: 400px;
+        display: grid;
+        place-content: center;
+        gap: 1rem;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .hero p {
+        max-width: 500px;
+    }
+</style>
+
+<script>
+    const hero = document.querySelector(".hero");
+    const eyes: NodeListOf<HTMLDivElement> = document.querySelectorAll(".eye");
+    document?.addEventListener("mousemove", (event: MouseEventInit) => {
+        eyes.forEach((eye) => {
+            const boundingRect = eye.getBoundingClientRect();
+            const eyeX = event.clientX ? event.clientX : 0;
+            const eyeY = event.clientY ? event.clientY : 0;
+            const x = boundingRect.left + boundingRect.width / 2;
+            const y = boundingRect.top + boundingRect.height / 2;
+            const rad = Math.atan2(eyeX - x, eyeY - y);
+            const degree = ((rad * 180) / Math.PI) * -1 + 180;
+            eye.style.transform = `rotate(${degree}deg)`;
+        });
+    });
+</script>

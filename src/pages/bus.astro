@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import ContentLayout from "../layouts/ContentLayout.astro";
 import busData from "../data/bus_timings.json";
 import "../style/style.css";
 
@@ -14,7 +14,7 @@ import "../style/style.css";
 // }
 ---
 
-<Layout title="nmamitloop | bus timings">
+<ContentLayout title="nmamitloop | bus timings">
     <main>
         <section>
             <h3>filters</h3>
@@ -59,7 +59,7 @@ import "../style/style.css";
             </table>
         </section>
     </main>
-</Layout>
+</ContentLayout>
 
 <style>
     table {

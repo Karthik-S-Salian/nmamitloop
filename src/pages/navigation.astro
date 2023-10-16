@@ -1,5 +1,5 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import ContentLayout from "@layouts/ContentLayout.astro";
 import placesData from "@data/places.json";
 import { Image } from "astro:assets";
 import "@style/style.css";
@@ -51,7 +51,7 @@ https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-
 */
 ---
 
-<Layout title="nmamitloop | navigation">
+<ContentLayout title="nmamitloop | navigation">
     <main>
         <!-- <section>
             <iframe src = "https://maps.google.com/maps?q=13.1824691117,74.9335876822&hl=es;z=14&amp;output=embed"></iframe>
@@ -116,7 +116,7 @@ https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-
             </ul>
         </section>
     </main>
-</Layout>
+</ContentLayout>
 
 <style>
     .place-card {

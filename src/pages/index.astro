@@ -1,41 +1,107 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import Card from '@components/Card.astro';
-import busIcon from "@assets/icons/icons8-bus-64.png"
-import navIcon from "@assets/icons/icons8-map-marker-64.png"
-import notesIcon from "@assets/icons/icons8-notebooks-64.png"
-import teacherIcon from "@assets/icons/teacher.png"
+import Layout from "@layouts/Layout.astro";
+import Card from "@components/Card.astro";
+import busIcon from "@assets/icons/icons8-bus-64.png";
+import navIcon from "@assets/icons/icons8-map-marker-64.png";
+import notesIcon from "@assets/icons/icons8-notebooks-64.png";
+import teacherIcon from "@assets/icons/teacher.png";
+import Hero from "@components/Hero.astro";
+
+const cards = [
+    {
+        title: "Campus Map",
+        icon: navIcon,
+        to: "/navigation",
+        hue: 163,
+        saturation: 80,
+    },
+    {
+        title: "Teachers",
+        icon: teacherIcon,
+        to: "/teachers",
+        hue: 194,
+        saturation: 100,
+    },
+    {
+        title: "bus timings",
+        icon: busIcon,
+        to: "/navigation",
+        hue: 325,
+        saturation: 80,
+    },
+    {
+        title: "notes",
+        icon: notesIcon,
+        to: "/navigation",
+        hue: 47,
+        saturation: 80,
+    },
+];
 ---
 
-<Layout title='nmamitloop'>
+<Layout title="nmamitloop">
     <main>
-        <section>
-            
+        <Hero />
+        <div class="spacer layer1"></div>
+        <section class="card-container">
+            {
+                cards.map((card,index) => {
+                    return (
+                        <Card
+                            title={card.title}
+                            icon={card.icon}
+                            to={card.to}
+                            hue={card.hue}
+                            saturation={card.saturation}
+                            delay={index*200}
+                        />
+                    );
+                })
+            }
         </section>
-        <section>
-            <Card title="Campus Map" icon={navIcon} to="/navigation"/>
-        <Card title="Teachers" icon={teacherIcon} to="/teachers"/>
-        <Card title="bus timings" icon={busIcon} to="/bus"/>
-        <Card title="notes" icon={notesIcon} to="/teachers"/>
-        </section>
+        <div class="spacer layer2"></div>
     </main>
 </Layout>
 
 <style>
-    main{
-        display: flex;
-        flex-direction: column;
-        gap:1rem;
-        align-items: center;
+    .card-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 150px);
+        place-content: center;
+        gap: 2rem;
+        min-height: 500px;
+        height: 80vh;
+        background-color: #0066ff;
+    }
+
+    .spacer {
+        aspect-ratio: 960/200;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .layer1 {
+        background-image: url("wave.svg");
+    }
+
+    .layer2 {
+        background-image: url("wave3.svg");
     }
 </style>
 
 <script>
-    const observer = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{
-            if(entry.isIntersecting){
-
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show")
+                console.log(entry)
             }
-        })
-    })
+        });
+    });
+
+    const sections = document.querySelectorAll(".animate");
+    sections.forEach(ele=>observer.observe(ele));
 </script>

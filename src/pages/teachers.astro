@@ -1,5 +1,5 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import ContentLayout from "@layouts/ContentLayout.astro";
 import teachersData from "@data/teachers.json";
 import defaultProfile from "@assets/images/fallback_profile.png";
 import { Image } from "astro:assets";
@@ -16,7 +16,7 @@ function getDeparments() {
 const deparments = getDeparments();
 ---
 
-<Layout title="teachers|nmamitloop">
+<ContentLayout  title="teachers|nmamitloop">
     <main>
         <div>
             <input type="search" id="teacher-search" />
@@ -73,7 +73,7 @@ const deparments = getDeparments();
             }
         </ul>
     </main>
-</Layout>
+</ContentLayout>
 
 <style>
     .teacher-card {

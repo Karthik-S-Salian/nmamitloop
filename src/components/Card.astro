@@ -1,37 +1,99 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 interface Props {
-	title: string,
-    icon:ImageMetadata,
-    to:string
+    title: string;
+    icon: ImageMetadata;
+    to: string;
+    hue: number;
+    saturation: number;
+    delay: number;
 }
 
-const { title,icon,to } = Astro.props;
+const { title, icon, to, hue, saturation, delay } = Astro.props;
 ---
 
-<a class="card" href={to}>
-    <Image src={icon} alt={title} height={64} width={64} format='webp'/>
-    <span>{title}</span>
+<a
+    class="card animate"
+    href={to}
+    style={{
+        transitionDelay: `${delay}ms`,
+    }}
+    >
+    <div class="content">
+        <Image src={icon} alt={title} height={64} width={64} format="webp" />
+        <span>{title}</span>
+    </div>
+
+    <div
+        class="cover"
+        style={{
+            backgroundColor: `hsl(${hue},${saturation}%,80%)`,
+            color: `hsl(${hue},${saturation}%,40%)`,
+        }}
+    >
+        {title}
+    </div>
 </a>
 
-
 <style>
-    .card{
-        width:100%;
+    .card {
+        background-color: whitesmoke;
+        border-radius: 8px;
+        color: black;
+        position: relative;
+    }
+
+    .content {
         display: flex;
+        flex-direction: column;
         padding: 1rem;
         align-items: center;
         gap: 1rem;
-        justify-content: space-around;
-        max-width: 350px;
-        border-radius: 8px;
-        background-color: whitesmoke;
-        color:black;
     }
 
-    .card img{
+    .card img {
         height: 100%;
         aspect-ratio: 1;
         object-position: center;
     }
+
+    .cover {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -50%;
+        text-transform: uppercase;
+        display: grid;
+        place-items: center;
+        opacity: 0;
+        border-radius: 8px;
+        transition:
+            0.3s cubic-bezier(0.6, 0.4, 0, 1),
+            transform 0.15s ease;
+        font-weight: bold;
+    }
+
+    .card:hover .cover {
+        opacity: 1;
+        transform: translate3d(0, -50%, 0);
+    }
+
+
+    .animate{
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(-100%);
+        transition: all 1s;
+    }
+
+    .show{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0%);
+    }
 </style>
+
+<script>
+    
+</script>
