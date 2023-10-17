@@ -1,16 +1,14 @@
 <header>
-    <a href="/"><h2>NMAMITLOOP</h2></a>
+    <a href="/nmamitloop/"><h2>NMAMITLOOP</h2></a>
 
     <nav>
-        <a href="/">home</a>
-        <a href="/">home</a>
-        <a href="/">home</a>
+        <a href="/nmamitloop/">home</a>
+        <a href="/nmamitloop/#footer" class="footer-link">About</a>
     </nav>
 </header>
 
 <style>
     header {
-        color:rgb(210, 161, 255);
         width: 100%;
         display: flex;
         padding: 1rem 5%;
@@ -29,3 +27,13 @@
         gap: 1rem;
     }
 </style>
+
+<script>
+    const footerLink = document.querySelector(".footer-link");
+    const footer = document.getElementById("footer");
+    footerLink?.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        footer?.scrollIntoView({ behavior: "smooth" });
+    });
+</script>
