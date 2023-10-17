@@ -99,4 +99,10 @@ const { title } = Astro.props;
 		font: inherit;
 		color: inherit;
 	}
+
+	@media(prefers-reduced-motion) {
+		*{
+			transition: none;
+		}
+	}
 </style>
