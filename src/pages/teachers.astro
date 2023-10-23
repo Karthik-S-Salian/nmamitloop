@@ -18,9 +18,6 @@ const deparments = getDeparments();
 
 <ContentLayout  title="teachers|nmamitloop">
     <main>
-        <div>
-            <input type="search" id="teacher-search" />
-        </div>
 
         <section>
             <fieldset class="branch-selector">
@@ -37,41 +34,47 @@ const deparments = getDeparments();
                 }
             </fieldset>
         </section>
-        <ul>
-            {
-                teachersData.map((teacher) => {
-                    return (
-                        <li class="teacher-card">
-                            {teacher.imgUrl ? (
-                                <Image
-                                    src={teacher.imgUrl}
-                                    alt={teacher.name}
-                                    width={100}
-                                    height={100}
-                                    format="webp"
-                                    loading="lazy"
-                                />
-                            ) : (
-                                <Image
-                                    src={defaultProfile}
-                                    alt={teacher.name}
-                                    width={100}
-                                    height={100}
-                                    format="webp"
-                                    loading="lazy"
-                                />
-                            )}
-                            <div class="detail">
-                                <h4 class="name">{teacher.name}</h4>
-                                <span class="branch">{teacher.branch}</span>
-                                <span>{teacher.block}</span>
-                                <span>{teacher.floor}</span>
-                            </div>
-                        </li>
-                    );
-                })
-            }
-        </ul>
+
+        <section>
+            <input type="search" id="teacher-search" placeholder="search someone..."/>
+        </section>
+        <section>
+            <ul>
+                {
+                    teachersData.map((teacher) => {
+                        return (
+                            <li class="teacher-card">
+                                {teacher.imgUrl ? (
+                                    <Image
+                                        src={teacher.imgUrl}
+                                        alt={teacher.name}
+                                        width={100}
+                                        height={100}
+                                        format="webp"
+                                        loading="lazy"
+                                    />
+                                ) : (
+                                    <Image
+                                        src={defaultProfile}
+                                        alt={teacher.name}
+                                        width={100}
+                                        height={100}
+                                        format="webp"
+                                        loading="lazy"
+                                    />
+                                )}
+                                <div class="detail">
+                                    <h4 class="name">{teacher.name}</h4>
+                                    <span class="branch">{teacher.branch}</span>
+                                    <span>{teacher.block}</span>
+                                    <span>{teacher.floor}</span>
+                                </div>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+        </section>
     </main>
 </ContentLayout>
 

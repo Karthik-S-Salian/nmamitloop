@@ -82,6 +82,10 @@ import "../style/style.css";
     td {
         padding: 0.5rem;
     }
+
+    .hidden{
+        display: none;
+    }
 </style>
 
 <script>
@@ -136,7 +140,6 @@ import "../style/style.css";
             const to = tableRows[i]
                 .querySelectorAll("td")[4]
                 .textContent?.toLowerCase();
-            console.log(type, "----", to);
             if (type?.match(matchType) && to?.match(matchTo)) {
                 tableRows[i].classList.remove("hidden");
             } else {

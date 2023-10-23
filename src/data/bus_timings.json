@@ -25,7 +25,7 @@
         "type":"Express",
         "at_nitte":"07:50",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Srilaxmi",
@@ -39,14 +39,14 @@
         "type":"Local",
         "at_nitte":"07:59",
         "from":"Karkala",
-        "destination":null
+        "destination":"Udupi"
     },
     {
         "name":"Vishal",
         "type":"Express",
         "at_nitte":"07:59",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Vishal",
@@ -67,7 +67,7 @@
         "type":"Local",
         "at_nitte":"08:07",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Milan",
@@ -81,7 +81,7 @@
         "type":"Express",
         "at_nitte":"08:10",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Vishal",
@@ -102,14 +102,14 @@
         "type":"Local",
         "at_nitte":"08:12",
         "from":"Karkala",
-        "destination":null
+        "destination":"Udupi"
     },
     {
         "name":"Ayra",
         "type":"Express",
         "at_nitte":"08:15",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Shahil",
@@ -130,14 +130,14 @@
         "type":"Express",
         "at_nitte":"08:25",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Reshma",
         "type":"Express",
         "at_nitte":"08:35",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Navadurga Prasad",
@@ -186,21 +186,21 @@
         "type":"Express",
         "at_nitte":"08:47",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Vishal",
         "type":"Express",
         "at_nitte":"09:02",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Annapoorneshwari",
         "type":"Express",
         "at_nitte":"09:10",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Jeevan",
@@ -221,7 +221,7 @@
         "type":"Express",
         "at_nitte":"09:19",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Mercy",
@@ -403,7 +403,7 @@
         "type":"Express",
         "at_nitte":"11:10",
         "from":"Karkala",
-        "destination":null
+        "destination":"Mangalore"
     },
     {
         "name":"Naveen",

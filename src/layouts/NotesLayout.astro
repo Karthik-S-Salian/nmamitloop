@@ -3,19 +3,17 @@ import "@style/notes.css";
 import Layout from "./Layout.astro";
 
 interface Props {
-    frontmatter: {
-        title: string;
-        description: string;
-    };
+    title: string;
+    description: string;
 }
 
-const { frontmatter } = Astro.props;
+const { title,description } = Astro.props;
 ---
 
 <Layout title="notes">
     <div id="root">
-        <h1 class="text-center">{frontmatter.title}</h1>
-        <p class="text-center">{frontmatter.description}</p>
+        <h1 class="text-center">{title}</h1>
+        {description && <p class="text-center">{description}</p>}
         <main>
             <slot />
         </main>

@@ -1,0 +1,8 @@
+---
+import { getCollection } from 'astro:content';
+
+const blogEntries = await getCollection('notes');
+blogEntries.forEach(element => {
+    console.log(element.slug)
+});
+---
