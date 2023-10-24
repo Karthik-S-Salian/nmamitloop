@@ -15,7 +15,28 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/nmamitloop/icons/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/nmamitloop/icons/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/nmamitloop/icons/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="/nmamitloop/manifest.json" />
+
+		<meta name="theme-color" content="#050029" />
+
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -24,6 +45,14 @@ const { title } = Astro.props;
 
 		<slot />
 		<Footer />
+
+		<script>
+			if ("serviceWorker" in navigator) {
+				navigator.serviceWorker.register(
+					"/nmamitloop/service-worker.js",
+				);
+			}
+		</script>
 	</body>
 </html>
 
@@ -100,9 +129,14 @@ const { title } = Astro.props;
 		color: inherit;
 	}
 
-	@media(prefers-reduced-motion) {
-		*{
+	@media (prefers-reduced-motion) {
+		* {
 			transition: none;
 		}
+	}
+
+	button {
+		border: none;
+		cursor: pointer;
 	}
 </style>

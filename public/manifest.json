@@ -1,0 +1,22 @@
+{
+    "name": "nmamitloop",
+    "short_name": "nmamitloop",
+    "start_url":"/nmamitloop/?home=true",
+    "icons": [
+        {
+            "src": "/nmamitloop/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose":"maskable any"
+        },
+        {
+            "src": "/nmamitloop/icons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose":"maskable any"
+        }
+    ],
+    "theme_color": "##050029",
+    "background_color": "##050029",
+    "display": "fullscreen"
+}

@@ -1,8 +1,18 @@
 ---
 import { getCollection } from 'astro:content';
 
+const dataMap = new Map();
+
 const blogEntries = await getCollection('notes');
 blogEntries.forEach(element => {
-    console.log(element.slug)
+    const branches = element.data.branches
+    branches.forEach((branch)=>{
+        if(!dataMap.has(branch)){
+            //dataMap.set("branch",new Map(element.data.sem))
+        }else{
+
+        }
+    })
+    
 });
 ---
