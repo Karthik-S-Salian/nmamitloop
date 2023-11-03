@@ -1,5 +1,4 @@
 ---
-import "@style/notes.css";
 import Layout from "./Layout.astro";
 
 interface Props {
@@ -56,18 +55,28 @@ const { title,description } = Astro.props;
         cursor: pointer;
         font-size: .9rem;
     }
+
+    main >h2:first-child {
+        margin-top: initial;
+    }
+
+    main> h2{
+        margin-top: 2rem;
+        
+    }
 </style>
 
 <script>
-    const codeBlocks = document.querySelectorAll("pre");
+    const codeContainer = document.querySelectorAll("pre");
 
-    codeBlocks?.forEach((codeBlock) => {
+    codeContainer?.forEach((codeContainer) => {
+        const codeBlock =  codeContainer.querySelector("code");
         const copyElement: HTMLDivElement = document.createElement("div");
         copyElement.textContent = "copy";
         copyElement.classList.add("copy");
-        codeBlock.appendChild(copyElement);
+        codeContainer.appendChild(copyElement);
         copyElement.addEventListener("click",event=>{
-        navigator.clipboard.writeText(codeBlock.textContent as string);
+        navigator.clipboard.writeText(codeBlock?.textContent as string);
         })
     });
 </script>

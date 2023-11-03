@@ -4,6 +4,7 @@ description: Find out what makes Astro awesome!
 branches: ["cs","is"]
 subject : oops
 sem: 3
+type: program
 ---
 
 Write a program to generate the resume. Create 2 Java classes Teacher (data: personal

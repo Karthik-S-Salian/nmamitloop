@@ -5,5 +5,5 @@ importScripts(
   // This will work!
   workbox.routing.registerRoute(
     ({request}) => true,
-    new workbox.strategies.CacheFirst()
+    new workbox.strategies.NetworkFirst()
   );

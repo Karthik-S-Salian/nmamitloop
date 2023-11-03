@@ -1,18 +1,162 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
+import ContentLayout from "@layouts/ContentLayout.astro";
+import "@style/style.css";
 
-const dataMap = new Map();
+const notesEntries = await getCollection("notes");
 
-const blogEntries = await getCollection('notes');
-blogEntries.forEach(element => {
-    const branches = element.data.branches
-    branches.forEach((branch)=>{
-        if(!dataMap.has(branch)){
-            //dataMap.set("branch",new Map(element.data.sem))
-        }else{
+const branches = new Set<string>();
+const sems = new Set<number>();
 
-        }
-    })
-    
+const subjects: {
+	[index: string]: {
+		branches: (
+			| "csf"
+			| "cs"
+			| "csc"
+			| "is"
+			| "ri"
+			| "me"
+			| "aids"
+			| "aiml"
+			| "cv"
+			| "ece"
+			| "ee"
+		)[];
+		sem: number;
+		name: string;
+	};
+} = {};
+
+
+
+notesEntries.forEach((entry) => {
+	sems.add(entry.data.sem);
+	entry.data.branches.forEach((branch) => {
+		branches.add(branch);
+	});
+	subjects[entry.data.subject] = {
+		branches: entry.data.branches,
+		sem: entry.data.sem,
+		name: entry.data.subject,
+	};
 });
 ---
+
+<ContentLayout title="notes|nmamitloop">
+	<main>
+		<section>
+			<h3>Choose the sem:</h3>
+			<fieldset id="sem-selector">
+				<legend>Sem</legend>
+				{
+					Array.from(sems).map((sem) => (
+						<span class="option">{sem}</span>
+					))
+				}
+			</fieldset>
+		</section>
+		<section>
+			<h3>Choose the branch:</h3>
+
+			<fieldset id="branch-selector">
+				<legend>Branch</legend>
+				{
+					Array.from(branches).map((branch) => (
+						<span class="option">{branch}</span>
+					))
+				}
+			</fieldset>
+		</section>
+		<section class="subjects-conatiner">
+			{
+				Object.values(subjects).map((subject) => (
+					<a
+						href={`/nmamitloop/notes/subjects/${subject.name}`}
+						data-sem={subject.sem}
+						data-branches={JSON.stringify(subject.branches)}
+						class="subject"
+					>
+						{subject.name}
+					</a>
+				))
+			}
+		</section>
+	</main>
+</ContentLayout>
+
+<style>
+	.subjects-conatiner {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.subject {
+		padding: 1rem;
+		background-color: rgba(255, 255, 255, 0.2);
+		border-radius: 5px;
+	}
+
+	.hide{
+		display: none;
+	}
+</style>
+
+<script
+	define:vars={{
+		branches: Array.from(branches),
+		sems: Array.from(sems),
+	}}
+>
+	//https://stackoverflow.com/questions/73511984/how-do-i-pass-a-server-variable-to-client-side-js-in-astro
+	const branchSelector = document.getElementById("branch-selector");
+	const semSelector = document.getElementById("sem-selector");
+	const subjects = document.querySelectorAll(".subject");
+
+	let branchSelected;
+	let semSelected;
+
+	branchSelector?.querySelectorAll(".option").forEach((ele) => {
+		ele.addEventListener("click", (event) => {
+			if (event !== null && event.target instanceof HTMLElement)
+				updateUI(event.target.textContent, semSelected);
+		});
+	});
+
+	semSelector?.querySelectorAll(".option").forEach((ele) => {
+		ele.addEventListener("click", (event) => {
+			if (event !== null && event.target instanceof HTMLElement)
+				updateUI(branchSelected, event.target.dataset.textContent);
+		});
+	});
+
+	function updateUI(branch, sem) {
+		if (branch != branchSelected) {
+			branchSelected = branch;
+			branchSelector?.querySelectorAll(".option").forEach((element) => {
+				if (branchSelected == element.textContent) {
+					element.classList.add("selected");
+				} else element.classList.remove("selected");
+			});
+		}
+		if (sem != semSelected) {
+			semSelected = sem;
+			semSelector?.querySelectorAll(".option").forEach((element) => {
+				if (semSelected == element.textContent) {
+					element.classList.add("selected");
+				} else element.classList.remove("selected");
+			});
+		}
+		subjects?.forEach((subject) => {
+			console.log(JSON.parse(subject.dataset.branches))
+			if (
+				JSON.parse(subject.dataset.branches).indexOf(branch)!==-1 &&
+				subject.dataset.sem == sem
+			) {
+				subject.classList.remove("hide");
+			} else subject.classList.add("hide");
+		});
+	}
+
+	updateUI(branches[0], sems[0]);
+</script>

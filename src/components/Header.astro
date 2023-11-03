@@ -32,17 +32,41 @@
     .install{
         border-radius: 20px;
         background-color:rgb(119, 0, 255);
-        padding: .6em 1.2em;
+        padding: .35em 1.1em;
         font-weight: 600;
     }
 </style>
 
 <script>
+
+    interface PromptEvent extends Event{ //fake interface to shutup type error
+        userChoice:{
+            "outcome":string
+        }
+        prompt():void;
+    }
+
     const footerLink = document.querySelector(".footer-link");
     const footer = document.getElementById("footer");
     footerLink?.addEventListener("click", function (event) {
         event.preventDefault();
 
         footer?.scrollIntoView({ behavior: "smooth" });
+    });
+
+    let deferredPrompt:PromptEvent|null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        deferredPrompt = e as PromptEvent;
+    });
+
+    const installApp = document.querySelector('.install');
+    installApp?.addEventListener('click', async () => {
+        if (deferredPrompt !== null) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                deferredPrompt = null;
+            }
+        }
     });
 </script>

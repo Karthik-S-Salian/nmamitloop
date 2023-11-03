@@ -97,9 +97,21 @@ const { title } = Astro.props;
 		color: white;
 	}
 
-	button:focus,
-	button:focus-visible {
-		outline: 4px auto -webkit-focus-ring-color;
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		overflow-wrap: break-word;
 	}
 
 	/* @media (prefers-color-scheme: dark) {
@@ -138,5 +150,9 @@ const { title } = Astro.props;
 	button {
 		border: none;
 		cursor: pointer;
+	}
+
+	ul,ol{
+		list-style: none;
 	}
 </style>

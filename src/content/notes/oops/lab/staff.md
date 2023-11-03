@@ -4,6 +4,7 @@ description: Find out what makes Astro awesome!
 branches: ["cs","is"]
 subject : oops
 sem: 3
+type: program
 ---
 
 4. Design a super class called Staff with details as StaffId, Name, Phone, Salary. Extend

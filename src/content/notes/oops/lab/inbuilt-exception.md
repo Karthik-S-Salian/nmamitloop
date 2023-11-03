@@ -4,6 +4,7 @@ description: Find out what makes Astro awesome!
 branches: ["cs","is"]
 subject : oops
 sem: 3
+type: program
 ---
 
 8. Write a Java program to read n number of integers into an array. Raise an appropriate
