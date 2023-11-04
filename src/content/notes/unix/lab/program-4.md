@@ -1,5 +1,5 @@
 ---
-title: Program 6
+title: Program 4
 description: Find out what makes Astro awesome!
 branches: ["is"]
 subject : unix
@@ -9,94 +9,105 @@ type: program
 
 
 ## Question
-6:Design a shell program that takes two file names and checks if the permissions for these files are identical. If they are identical, output the common permissions; otherwise, output each file name followed by its permissions.
+4: Write a shell program to implement simple calculator operations.
 
 ## Code
 ```bash
 #!/bin/sh
 
-display_perm() {
-  r=$(ls -l "$1" | cut -c 2)
-  w=$(ls -l "$1" | cut -c 3)
-  x=$(ls -l "$1" | cut -c 4)
-  echo "Owner permissions:"
-  if [ "$r" = "r" ]; then
-    echo "READ"
-  else
-    echo "NO READ"
-  fi
-  if [ "$w" = "w" ]; then
-    echo "WRITE"
-  else
-    echo "NO WRITE"
-  fi
-  if [ "$x" = "x" ]; then
-    echo "EXECUTE"
-  else
-    echo "NO EXECUTE"
-  fi
-  g=$(ls -l "$1" | cut -c 5)
-  w=$(ls -l "$1" | cut -c 6)
-  x=$(ls -l "$1" | cut -c 7)
-  echo "Group permissions:"
-  if [ "$r" = "r" ]; then
-    echo "READ"
-  else
-    echo "NO READ"
-  fi
-  if [ "$w" = "w" ]; then
-    echo "WRITE"
-  else
-    echo "NO WRITE"
-  fi
-  if [ "$x" = "x" ]; then
-    echo "EXECUTE"
-  else
-    echo "NO EXECUTE"
-  fi
-  o=$(ls -l "$1" | cut -c 8)
-  w=$(ls -l "$1" | cut -c 9)
-  x=$(ls -l "$1" | cut -c 10)
-  echo "Others permissions:"
-  if [ "$r" = "r" ]; then
-    echo "READ"
-  else
-    echo "NO READ"
-  fi
-  if [ "$w" = "w" ]; then
-    echo "WRITE"
-  else
-    echo "NO WRITE"
-  fi
-  if [ "$x" = "x" ]; then
-    echo "EXECUTE"
-  else
-    echo "NO EXECUTE"
-  fi
-}
-echo "Enter two file names"
-read file1 file2
-if [ -e "$file1" -a -e "$file2" ]; then
-  p1=$(display_perm "$file1")
-  p2=$(display_perm "$file2")
-  if [ "$p1" = "$p2" ]; then
-    echo "Same permissions"
-  else
-    echo "Permission of $file1"
-    display_perm "$file1"
-    echo "Permission of $file2"
-    display_perm "$file2"
-  fi
-else
-  echo "Invalid file names"
-fi
+echo "Options are:"
+echo "+: Add"
+echo "-: Subtract"
+echo "*: Multiply"
+echo "/: Divide"
+
+echo "Enter the two numbers:"
+read a
+read b
+echo "Enter your choice (+, -, *, /):"
+read ch
+case $ch in
+    +) result=$(expr $a + $b)
+       echo "Sum = $result";;
+    -) result=$(expr $a - $b)
+       echo "Difference = $result";;
+    *|\*) result=$(expr $a \* $b)
+       echo "Product = $result";;
+    /) if [ $b -ne 0 ]; then
+       result=$(expr $a / $b)
+       echo "Division = $result"
+       else
+       echo "Error: Division by zero"
+       fi
+       ;;
+    *) echo "Invalid choice";;
+esac
 ```
 
 ## Output
-$ sh perm.sh
-Enter two file names
-abc.txt data.c
-Same permissions
+$ sh cal.sh
+Options are:
++: Add
+-: Subtract
+*: Multiply
+/: Divide
+Enter the two numbers:
+6
+4
+Enter your choice (+, -, *, /):
++
+Sum = 10
+
+$ sh cal.sh
+Options are:
++: Add
+-: Subtract
+*: Multiply
+/: Divide
+Enter the two numbers:
+3
+2
+Enter your choice (+, -, *, /):
+-
+Difference = 1
+
+$ sh cal.sh
+Options are:
++: Add
+-: Subtract
+*: Multiply
+/: Divide
+Enter the two numbers:
+9
+0
+Enter your choice (+, -, *, /):
+/
+Error: Division by zero
+
+$ sh cal.sh
+Options are:
++: Add
+-: Subtract
+*: Multiply
+/: Divide
+Enter the two numbers:
+5
+2
+Enter your choice (+, -, *, /):
+*
+Product = 10
+
+$ sh cal.sh
+Options are:
++: Add
+-: Subtract
+*: Multiply
+/: Divide
+Enter the two numbers:
+4
+3
+Enter your choice (+, -, *, /):
+$ Invalid choice
 
 ## Summary
-This script checks if the permissions for two files are identical. If they are identical, it outputs the common permissions. Otherwise, it outputs the permissions for each file separately. The program utilizes file handling, permission extraction, and comparison.
+This script serves as a simple calculator, performing addition, subtraction, multiplication, and division based on user input. It demonstrates the use of arithmetic operations and a case statement for menu selection.

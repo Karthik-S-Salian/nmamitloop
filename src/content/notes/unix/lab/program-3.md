@@ -1,5 +1,5 @@
 ---
-title: Program 6
+title: Program 3
 description: Find out what makes Astro awesome!
 branches: ["is"]
 subject : unix
@@ -9,39 +9,35 @@ type: program
 
 
 ## Question
-7: For the given path names (e.g., a/b, a/b/c), design a shell script to create all the components in those path names as directories.
+3: Plan and implement a shell program to search a pattern in a file that will take both the pattern and file name from the command line arguments.
 
 ## Code
 ```bash
 #!/bin/sh
 
-if [ $# -ne 1 ]; then
+if [ $# -eq 0 ]; then
     echo "No arguments"
-    exit
-fi
-curdir=$(pwd)
-for dir in $(echo $1 | tr '/' ' ')
-do
-    if [ -d $dir ]
-    then
-        echo "$dir exists under $curdir"
-        cd $dir
-do
+else
+    pattern="$1"
+    filename="$2"
+    if [ -f "$filename" ]; then
+        grep "$pattern" "$filename"
     else
-        mkdir $dir
-        echo "$dir created under $curdir"
-        cd $dir
-do
-done
-cd $curdir
+        echo "File '$filename' does not exist"
+    fi
+fi
 ```
 
 ## Output
-$ sh a.sh a/b/v/l
-a created under /home/student/Desktop
-b created under /home/student/Desktop/a
-v created under /home/student/Desktop/a/b
-1 created under /home/student/Desktop/a/b/v
+$ sh P3b.sh
+No arguments
+
+$ sh P3b.sh search_pattern sample_file.txt
+This is a sample file with the search_pattern.
+Another line with the search_pattern.
+
+$ sh P3b.sh another_pattern non_existent_file.txt
+File 'non_existent_file.txt' does not exist
 
 ## Summary
-This script creates directories for the given path names, such as 'a/b/c,' in a hierarchical manner. It parses the path, checks for the existence of each directory, and creates it if necessary.
+This script searches for a pattern within a file specified in the command line arguments. It demonstrates command-line argument handling, file existence checking, and pattern matching.

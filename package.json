@@ -1,5 +1,5 @@
 {
-  "name": "nmamitlooop",
+  "name": "nmamitloop",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/preact": "^3.0.0",
     "astro": "^3.2.0"
   }
 }

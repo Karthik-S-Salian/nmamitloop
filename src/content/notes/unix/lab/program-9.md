@@ -1,5 +1,5 @@
 ---
-title: Program 1
+title: Program 6
 description: Find out what makes Astro awesome!
 branches: ["is"]
 subject : unix
@@ -7,42 +7,33 @@ sem: 3
 type: program
 ---
 
-## Question
-Implement a shell program to find and display the largest and smallest of three numbers.
 
-## Code 
+## Question
+9: For every filename, check whether the file exists in the current directory or not and then convert its name to uppercase only if a file with the new name doesn't exist. Shell script to perform this task.
+
+## Code
 ```bash
 #!/bin/bash
 
-echo "Please enter three numbers"
-read x
-read y
-read z
-
-if [ $x -ge $y ] && [ $x -ge $z ]; then
-    echo "$x is the largest number"
-elif [ $y -ge $x ] && [ $y -ge $z ]; then
-    echo "$y is the largest number"
-else
-    echo "$z is the largest number"
-fi
-
-if [ $x -lt $y ] && [ $x -lt $z ]; then
-    echo "$x is the smallest number"
-elif [ $y -lt $x ] && [ $y -lt $z ]; then
-    echo "$y is the smallest number"
-else
-    echo "$z is the smallest number"
-fi
+for file in "$@"; do
+  if [ -f "$file" ]; then
+    ufile=$(echo "$file" | tr '[a-z]' '[A-Z]')
+    if [ -f "$ufile" ]; then
+      echo "$ufile also exists"
+    else
+      mv "$file" "$ufile"
+    fi
+  else
+    echo "$file doesn't exist"
+  fi
+done
 ```
-## Output Please 
-enter three numbers
-6
-7
-3
-7 is the largest number
-3 is the smallest number
 
+## Output
+$ sh upper.sh
+abc.txt data.c
+ABC.TXT also exists
+Data.c doesn't exist
 
 ## Summary
-This script finds and displays the largest and smallest numbers among three given numbers. It uses conditional statements to determine the largest and smallest values.
+This script verifies the existence of files in the current directory and changes their names to uppercase, provided a file with the new name doesn't already exist. It utilizes file existence checks and string transformations.
