@@ -28,11 +28,9 @@ const subjects: {
 	};
 } = {};
 
-
-
 notesEntries.forEach((entry) => {
 	sems.add(entry.data.sem);
-	entry.data.branches.forEach((branch) => {
+	entry.data.branches.forEach((branch: string) => {
 		branches.add(branch);
 	});
 	subjects[entry.data.subject] = {
@@ -97,66 +95,71 @@ notesEntries.forEach((entry) => {
 		border-radius: 5px;
 	}
 
-	.hide{
+	.hide {
 		display: none;
 	}
 </style>
 
-<script
-	define:vars={{
-		branches: Array.from(branches),
-		sems: Array.from(sems),
-	}}
->
+<script>
 	//https://stackoverflow.com/questions/73511984/how-do-i-pass-a-server-variable-to-client-side-js-in-astro
-	const branchSelector = document.getElementById("branch-selector");
-	const semSelector = document.getElementById("sem-selector");
+	const branchOptions = document.querySelectorAll("#branch-selector .option");
+	const semOptions = document.querySelectorAll("#sem-selector .option");
 	const subjects = document.querySelectorAll(".subject");
 
-	let branchSelected;
-	let semSelected;
+	let branchSelected: string | null;
+	let semSelected: string | null;
 
-	branchSelector?.querySelectorAll(".option").forEach((ele) => {
+	branchOptions.forEach((ele) => {
 		ele.addEventListener("click", (event) => {
-			if (event !== null && event.target instanceof HTMLElement)
+			if (event.target instanceof HTMLElement)
 				updateUI(event.target.textContent, semSelected);
 		});
 	});
 
-	semSelector?.querySelectorAll(".option").forEach((ele) => {
+	semOptions.forEach((ele) => {
 		ele.addEventListener("click", (event) => {
-			if (event !== null && event.target instanceof HTMLElement)
-				updateUI(branchSelected, event.target.dataset.textContent);
+			if (event.target instanceof HTMLElement)
+				updateUI(branchSelected, event.target.textContent);
 		});
 	});
 
-	function updateUI(branch, sem) {
+	function updateUI(branch: string | null, sem: string | null) {
+		let isUpdated: boolean = false;
+		
 		if (branch != branchSelected) {
 			branchSelected = branch;
-			branchSelector?.querySelectorAll(".option").forEach((element) => {
+			branchOptions.forEach((element) => {
 				if (branchSelected == element.textContent) {
 					element.classList.add("selected");
 				} else element.classList.remove("selected");
 			});
+			isUpdated = true;
 		}
+
 		if (sem != semSelected) {
 			semSelected = sem;
-			semSelector?.querySelectorAll(".option").forEach((element) => {
+			semOptions.forEach((element) => {
 				if (semSelected == element.textContent) {
 					element.classList.add("selected");
 				} else element.classList.remove("selected");
 			});
+			isUpdated = true;
 		}
-		subjects?.forEach((subject) => {
-			console.log(JSON.parse(subject.dataset.branches))
-			if (
-				JSON.parse(subject.dataset.branches).indexOf(branch)!==-1 &&
-				subject.dataset.sem == sem
-			) {
-				subject.classList.remove("hide");
-			} else subject.classList.add("hide");
-		});
+
+		if (isUpdated) {
+			subjects?.forEach((subject) => {
+				if (!(subject instanceof HTMLElement)) return;
+				if (
+					JSON.parse(subject.dataset.branches || "").indexOf(
+						branch,
+					) !== -1 &&
+					subject.dataset.sem == sem
+				) {
+					subject.classList.remove("hide");
+				} else subject.classList.add("hide");
+			});
+		}
 	}
 
-	updateUI(branches[0], sems[0]);
+	updateUI(branchOptions[0].textContent, semOptions[0].textContent);
 </script>

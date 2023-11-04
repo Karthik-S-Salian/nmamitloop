@@ -35,12 +35,12 @@ else
     echo "$z is the smallest number"
 fi
 ```
-## Output Please 
-enter three numbers
-6
-7
-3
-7 is the largest number
+## Output 
+Please enter three numbers\
+6\
+7\
+3\
+7 is the largest number\
 3 is the smallest number
 
 
