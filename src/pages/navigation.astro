@@ -26,28 +26,18 @@ await Astro.glob("/src/assets/images/*.jpg").then((files) => {
 
 const options: { [index: string]: string } = {};
 
-placesData.forEach((place:placeType) => {
+placesData.forEach((place: placeType) => {
     const image = images[place.name.split("/").pop() as string];
-    place.image = image?image:buildingFallback;
+    place.image = image ? image : buildingFallback;
 
     if (options[place.cat]) {
-        if (options[place.cat] != place.inout)
-            options[place.cat] = "both";
-    } else
-        options[place.cat] = place.inout;
+        if (options[place.cat] != place.inout) options[place.cat] = "both";
+    } else options[place.cat] = place.inout;
 });
-
-/*
-map link
-https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-particular-longitude-and-latitude
-*/
 ---
 
 <ContentLayout title="nmamitloop | navigation">
     <main>
-        <!-- <section>
-            <iframe src = "https://maps.google.com/maps?q=13.1824691117,74.9335876822&hl=es;z=14&amp;output=embed"></iframe>
-        </section> -->
         <section class="area-selector">
             <h1 class="area" data-value="in">Inside Campus</h1>
             <h1 class="area" data-value="out">Outside Campus</h1>
@@ -77,7 +67,11 @@ https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-
             </fieldset>
         </section>
         <section>
-            <input type="search" id="nav-search" placeholder="type something..."/>
+            <input
+                type="search"
+                id="nav-search"
+                placeholder="type something..."
+            />
         </section>
 
         <section>
@@ -89,6 +83,8 @@ https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-
                                 class="place-card"
                                 data-in={place.inout}
                                 data-category={place.cat}
+                                data-lat={place.lat}
+                                data-lng={place.lng}
                             >
                                 <Image
                                     src={place.image as string}
@@ -107,6 +103,27 @@ https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-
                 }
             </ul>
         </section>
+
+        <!-- <a
+            href={`https://maps.google.com/maps?q=${place.lat},${place.lng}&hl=es;z=14&amp;output=embed`}
+        ></a> -->
+
+        <!-- map link
+        https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-particular-longitude-and-latitude
+            -->
+        
+            <!-- <section>
+                <iframe id="map-frame"
+                    src="https://maps.google.com/maps?q=13.1824691117,74.9335876822&hl=es;z=14&output=embed"
+                ></iframe>
+
+            </section> -->
+
+        <dialog id="dialog">
+            <section>
+                <iframe id="map-frame"></iframe>
+            </section>
+        </dialog>
     </main>
 </ContentLayout>
 
@@ -152,6 +169,25 @@ https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-
 
     .area-selected {
         border-bottom: 4px solid green;
+    }
+
+    dialog{
+        width: 100%;
+        max-width:750px;
+        height: fit-content;
+        border: none;
+        box-shadow: 1px 1px 1em rgb(0 0 0 /0.4);
+        border-radius: 8px;
+        padding: 0 15px;
+        background-color: rgb(134, 134, 134);
+    }
+
+    iframe{
+        width: 100%;
+        aspect-ratio: 16/9;
+        padding: 0;
+        margin: 0;
+        border: 0;
     }
 </style>
 
@@ -230,5 +266,19 @@ https://stackoverflow.com/questions/1801732/how-do-i-link-to-google-maps-with-a-
     }
 
     updateUI();
+
+    const dialog = document.getElementById("dialog") as HTMLDialogElement;
+    const mapFrame = dialog.querySelector("#map-frame") as HTMLIFrameElement;
+    placesList.forEach(place=>{
+        const lat = place.getAttribute("data-lat");
+        const long = place.getAttribute("data-lng");
+        const url = `https://maps.google.com/maps?q=${lat},${long}&hl=es;z=250&amp;&output=embed`
+        place.addEventListener("click",event=>{
+            if(!navigator.onLine)
+                return;
+            mapFrame.src = url
+            dialog.showModal();
+        })
+    })
+
 </script>
-    
