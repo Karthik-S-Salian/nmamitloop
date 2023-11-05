@@ -6,5 +6,6 @@ export default defineConfig({
         domains: ["nitte.edu.in","firebasestorage.googleapis.com"],
       },
       site: 'https://Karthik-S-Salian.github.io',
-      base: '/nmamitloop'
+      base: '/nmamitloop',
+
 });

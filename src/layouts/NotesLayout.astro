@@ -3,7 +3,7 @@ import Layout from "./Layout.astro";
 
 interface Props {
     title: string;
-    description: string;
+    description: string|null|undefined;
 }
 
 const { title,description } = Astro.props;
@@ -76,9 +76,7 @@ const { title,description } = Astro.props;
 </style>
 
 <script>
-    const codeContainer = document.querySelectorAll("pre");
-
-    codeContainer?.forEach((codeContainer) => {
+    document.querySelectorAll("pre")?.forEach((codeContainer) => {
         const codeBlock =  codeContainer.querySelector("code");
         const copyElement: HTMLDivElement = document.createElement("div");
         copyElement.textContent = "copy";

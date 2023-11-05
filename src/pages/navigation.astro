@@ -24,25 +24,17 @@ await Astro.glob("/src/assets/images/*.jpg").then((files) => {
     });
 });
 
-placesData.forEach((place: placeType) => {
-    const image = images[place.name.split("/").pop() as string];
-    if (image) {
-        place.image = image;
-    } else {
-        place.image = buildingFallback;
-    }
-});
-
 const options: { [index: string]: string } = {};
 
-placesData.forEach((ele) => {
-    if (options[ele.cat]) {
-        if (options[ele.cat] != ele.inout) {
-            options[ele.cat] = "both";
-        }
-    } else {
-        options[ele.cat] = ele.inout;
-    }
+placesData.forEach((place:placeType) => {
+    const image = images[place.name.split("/").pop() as string];
+    place.image = image?image:buildingFallback;
+
+    if (options[place.cat]) {
+        if (options[place.cat] != place.inout)
+            options[place.cat] = "both";
+    } else
+        options[place.cat] = place.inout;
 });
 
 /*
