@@ -14,8 +14,6 @@ type: index
 
 ## Lab Programs
 
-### Shell Bash scripting
-
 1. [Implement a shell program to find and display the largest and smallest of three numbers.](/nmamitloop/notes/subjects/unix/lab/program-1)
 
 2. [Find whether the number n is divisible by m or not using a shell script. Where m and n are supplied as command line arguments or read from the keyboard interactively.](/nmamitloop/notes/subjects/unix/lab/program-2)

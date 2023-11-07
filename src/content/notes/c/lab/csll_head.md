@@ -7,7 +7,6 @@ sem: 3
 type: program
 ---
 
-## Code
 ```c
 // csll using header node
 #include <stdio.h>
@@ -115,31 +114,41 @@ void insert_right(NODE head, int value, int nodeValue)
 
 void delete_right(NODE head, int nodeValue)
 {
+    if (head->link == head){
+        printf("csll is empty\n");
+        return;
+    }
     NODE currNode = head->link;
-    while (currNode->link != head)
+    int nodeExists = 0;
+    while (currNode != head)
     {
         if (currNode->data == nodeValue)
         {
-            NODE nextNode = currNode->link;
-            currNode->link = nextNode->link;
-            head->data--;
-            printf("sucessfully deleted %d\n", nextNode->data);
-            freeNode(nextNode);
-            return;
+            nodeExists = 1;
+            break;
         }
         currNode = currNode->link;
     }
-    if(currNode->data==nodeValue){
-        printf("could not delete bcs the node is last node\n");
+    if(nodeExists){
+        NODE nextNode;
+        if(currNode->link == head){
+            nextNode = head->link;
+            head->link = nextNode->link;
+        }else{
+            nextNode = currNode->link;
+            currNode->link = nextNode->link;
+        }
+        head->data--;
+        printf("sucessfully deleted %d\n", nextNode->data);
+        freeNode(nextNode);
     }else{
         printf("could not find node with value %d\n", nodeValue);
     }
-    
 }
 
 void display(NODE head)
 {
-    printf("There are %d nodes\n", head->data);
+    printf("no of nodes = %d \n", head->data);
     if (head->data == 0)
         printf("csll is empty");
     for (NODE crr = head->link; crr != head; crr = crr->link)
@@ -210,65 +219,3 @@ int main()
     return 0;
 }
 ```
-## Output
-csll using head node\
-1: insert front\
-2: insert rear\
-3: delete front\
-4: delete rear\
-5: insert right\
-6: delete right\
-7: display\
-8: quit program
-
-Enter the choice: 1\
-Enter the element be inserted: 12\
-sucessfully inserted 12
-
-Enter the choice: 1\
-Enter the element be inserted: 24\
-sucessfully inserted 24
-
-Enter the choice: 2\
-Enter the element be inserted: 32\
-sucessfully inserted 32
-
-Enter the choice: 2\
-Enter the element be inserted: 87\
-sucessfully inserted 87
-
-Enter the choice: 3\
-deleted item 24
-
-Enter the choice: 4\
-deleted item 87
-
-Enter the choice: 5\
-Enter the element be inserted: 93\
-Enter the node value: 1\
-could not find node with value 1
-
-Enter the choice: 39\
-INVALID OPTION
-
-Enter the choice: 5\
-Enter the element be inserted: 10\
-Enter the node value: 24\
-could not find node with value 24
-
-Enter the choice: 5\
-Enter the element be inserted: 10\
-Enter the node value: 32\
-sucessfully inserted 10
-
-Enter the choice: 6\
-Enter the node value: 32\
-sucessfully deleted 10
-
-Enter the choice: 7\
-There are 2 nodes\
-12  32
-
-Enter the choice: 8\
-exiting...
-
