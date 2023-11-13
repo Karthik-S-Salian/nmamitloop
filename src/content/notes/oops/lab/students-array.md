@@ -7,11 +7,9 @@ sem: 3
 type: program
 ---
 
-3. Create a Java class called Student with the following details as private instance
-
-variables within it. USN Name Branch Phone Write a Java program to create n number
-Student objects and print the USN, Name, Branch, and Phone of these objects with
-suitable headings.
+<pre>
+3. Create a Java class called Student with the following details as private instance variables within it. USN Name Branch Phone Write a Java program to create n number Student objects and print the USN, Name, Branch, and Phone of these objects with suitable headings.
+</pre>
 
 
 ```java

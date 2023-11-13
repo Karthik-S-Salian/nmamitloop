@@ -7,6 +7,19 @@ sem: 3
 type: program
 ---
 
+## Question
+
+<pre>
+Design, Develop and Implement a menu driven Program in C for the following operations on Circular QUEUE of Characters (Array Implementation of Queue with maximum size MAX)
+Insert an Element on to Circular QUEUE
+Delete an Element from Circular QUEUE
+Demonstrate Overflow and Underflow situations on Circular QUEUE
+Display the status of Circular QUEUE
+Exit
+Support the program with appropriate functions for each of the above operations
+</pre>
+
+## Code
 ```c
 #include<stdio.h>
 #include<stdlib.h>

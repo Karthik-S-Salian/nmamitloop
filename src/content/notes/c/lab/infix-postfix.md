@@ -7,7 +7,9 @@ sem: 3
 type: program
 ---
 
+<pre>
 Design, Develop and Implement a Program in C for converting an Infix Expression to Postfix Expression. Program should support for both parenthesizedand free parenthesized expressions with the operators: +, -, *, /, %(Remainder), ^(Power) and alphanumeric operands.
+</pre>
 
 ```c
 #include<stdio.h>

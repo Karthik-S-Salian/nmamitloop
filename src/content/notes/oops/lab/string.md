@@ -7,9 +7,10 @@ sem: 3
 type: program
 ---
 
+<pre>
 9. Write a program to count the number of capital letters, display the
-position of each capital letter , no; of digits and no: of
-occurrences of each vowel in a user entered string via keyboard.
+position of each capital letter , no; of digits and no: of occurrences of each vowel in a user entered string via keyboard.
+</pre>
 
 ```java
 

@@ -30,10 +30,12 @@ done
 ```
 
 ## Output
+<pre>
 $ sh upper.sh
 abc.txt data.c
 ABC.TXT also exists
 Data.c doesn't exist
+</pre>
 
 ## Summary
 This script verifies the existence of files in the current directory and changes their names to uppercase, provided a file with the new name doesn't already exist. It utilizes file existence checks and string transformations.

@@ -7,6 +7,7 @@ sem: 3
 type: program
 ---
 
+<pre>
 Design, Develop and Implement a menu-driven Program in C for the following Array operations
 1. Creating an Array of N Integer Elements
 2. Display of Array Elements with Suitable Headings
@@ -14,6 +15,7 @@ Design, Develop and Implement a menu-driven Program in C for the following Array
 4. Deleting an Element at a given valid Position(POS)
 5. Exit.
 Support the program with functions for each of the above operations.
+</pre>
 
 ```c
 #include <stdio.h>

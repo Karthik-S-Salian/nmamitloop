@@ -28,11 +28,13 @@ fi
 ```
 
 ## Output
+<pre>
 Enter the dividend:
 66
 Enter the divisor:
 2
 66 is divisible by 2
+</pre>
 
 ## Summary:
 This script determines whether one number is divisible by another. It checks if the remainder of the division is zero, indicating divisibility.

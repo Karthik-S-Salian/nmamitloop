@@ -93,10 +93,12 @@ fi
 ```
 
 ## Output
+<pre>
 $ sh perm.sh
 Enter two file names
 abc.txt data.c
 Same permissions
+</pre>
 
 ## Summary
 This script checks if the permissions for two files are identical. If they are identical, it outputs the common permissions. Otherwise, it outputs the permissions for each file separately. The program utilizes file handling, permission extraction, and comparison.

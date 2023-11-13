@@ -7,13 +7,9 @@ sem: 3
 type: program
 ---
 
-11. Develop a java program to validate the USN value entered by the user by making use
-of user defined exception handling concept.Valid usn number will have the format
-“4NMmmXYnnn” where mm is numeric value ranging from 01 to 22 , valid values
-for XY are “CS”,”CV”,”AI”,”EE”,”EC”,”ME”,”RE”,”BT”,”IS”,”CC”,”DS” and nnn
-is running 3 digit number.The exception message will be “Invalid USN”,”Invalid
-Year”,”Invalid branch code”,”Invalid Running number” dependending on the error in
-the value entered.
+<pre>
+11. Develop a java program to validate the USN value entered by the user by making use of user defined exception handling concept.Valid usn number will have the format “4NMmmXYnnn” where mm is numeric value ranging from 01 to 22 , valid values for XY are “CS”,”CV”,”AI”,”EE”,”EC”,”ME”,”RE”,”BT”,”IS”,”CC”,”DS” and nnn is running 3 digit number.The exception message will be “Invalid USN”,”Invalid Year”,”Invalid branch code”,”Invalid Running number” dependending on the error in the value entered.
+</pre>
 
 ```java
 import java.util.*;

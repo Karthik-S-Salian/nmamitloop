@@ -22,11 +22,17 @@ const { title,description } = Astro.props;
 <style is:global>
     pre {
         font-family: inherit;
-        font-size: 1.2em;
         padding: 1rem;
         border-radius: 5px;
         position: relative;
+        width:100%;
+        white-space: pre-wrap;
     }
+
+    code{
+        font-size: 1rem;
+    }
+    
     #root {
         width: 100%;
         height: 100%;
@@ -78,6 +84,7 @@ const { title,description } = Astro.props;
 <script>
     document.querySelectorAll("pre")?.forEach((codeContainer) => {
         const codeBlock =  codeContainer.querySelector("code");
+        if(!codeBlock) return;
         const copyElement: HTMLDivElement = document.createElement("div");
         copyElement.textContent = "copy";
         copyElement.classList.add("copy");

@@ -7,10 +7,10 @@ sem: 3
 type: program
 ---
 
+<pre>
 Write a Java program that implements a multithreaded application that has
-three threads. First thread generates a random integer for every 1 second; second
-thread computes the square of the number and prints; third thread will print the value
-the cube of the number.
+three threads. First thread generates a random integer for every 1 second;second thread computes the square of the number and prints; third thread will print the value the cube of the number.
+</pre>
 
 ```java
 package ThreadPack;

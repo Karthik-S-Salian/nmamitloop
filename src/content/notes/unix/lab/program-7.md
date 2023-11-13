@@ -37,11 +37,13 @@ cd $curdir
 ```
 
 ## Output
+<pre>
 $ sh a.sh a/b/v/l
 a created under /home/student/Desktop
 b created under /home/student/Desktop/a
 v created under /home/student/Desktop/a/b
 1 created under /home/student/Desktop/a/b/v
+</pre>
 
 ## Summary
 This script creates directories for the given path names, such as 'a/b/c,' in a hierarchical manner. It parses the path, checks for the existence of each directory, and creates it if necessary.

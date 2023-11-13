@@ -7,13 +7,12 @@ sem: 3
 type: program
 ---
 
-8. Write a Java program to read n number of integers into an array. Raise an appropriate
-exception
-(ArithmeticException,InputMismatchException,ArrayOutOfBoundsExcception)whil
-e performing following operations;a) Dividing each element by the smallest element
-in an array. b) reading elements from the keyboard c) accessing the element from the
-index specified by the keyboard entry.Concept of exception handling using multiple
-catch blocks to be used in this scenario.
+<pre>
+8. Write a Java program to read n number of integers into an array. Raise an appropriate exception (ArithmeticException,InputMismatchException ArrayOutOfBoundsExcception)while performing following operations;
+a) Dividing each element by the smallest element in an array. 
+b) reading elements from the keyboard 
+c) accessing the element from the index specified by the keyboard entry.Concept of exception handling using multiple catch blocks to be used in this scenario.
+</pre>
 
 ```java
 

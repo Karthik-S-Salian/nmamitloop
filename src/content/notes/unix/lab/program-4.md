@@ -45,6 +45,7 @@ esac
 ```
 
 ## Output
+<pre>
 $ sh cal.sh
 Options are:
 +: Add
@@ -108,6 +109,7 @@ Enter the two numbers:
 3
 Enter your choice (+, -, *, /):
 $ Invalid choice
+</pre>
 
 ## Summary
 This script serves as a simple calculator, performing addition, subtraction, multiplication, and division based on user input. It demonstrates the use of arithmetic operations and a case statement for menu selection.

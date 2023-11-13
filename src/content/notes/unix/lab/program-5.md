@@ -35,6 +35,7 @@ fi
 ```
 
 ## Output
+<pre>
 $ sh rev.sh A B C
 Program name: rev.sh
 Number of arguments: 3
@@ -46,6 +47,7 @@ Arguments in reverse order
 arg3 is C
 arg2 is B
 arg1 is A
+</pre>
 
 ## Summary
 This script accepts any number of arguments and prints them in the same order and in reverse order. It showcases argument handling, counting, and reversing the order.

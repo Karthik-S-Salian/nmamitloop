@@ -69,6 +69,7 @@ esac
 ```
 
 ## Output
+<pre>
 Suzune Horikita
 
 Menu
@@ -77,8 +78,8 @@ Menu
 3. Extract Last 3 Character
 4. Locate a position of a character in a string
 5. Quit
-Enter your Choice: 2\
-First three characters are: Suz\
+Enter your Choice: 2
+First three characters are: Suz
 Enter the String: Suzune Horikita
 
 Menu
@@ -87,8 +88,8 @@ Menu
 3. Extract Last 3 Character
 4. Locate a position of a character in a string
 5. Quit
-Enter your Choice: 3\
-Last three characters are: ita\
+Enter your Choice: 3
+Last three characters are: ita
 Enter the String: Suzune Horikita
 
 Menu
@@ -97,9 +98,10 @@ Menu
 3. Extract Last 3 Character
 4. Locate a position of a character in a string
 5. Quit
-Enter your Choice: 4\
-Enter the Character: e\
+Enter your Choice: 4
+Enter the Character: e
 Position of character e is: 7
+</pre>
 
 ## Summary
 This script handles various string operations, including calculating the length of the string, extracting the first and last three characters, and locating the position of a specific character. It provides a menu for user interaction.

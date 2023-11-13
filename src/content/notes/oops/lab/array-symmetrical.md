@@ -8,9 +8,9 @@ type: program
 ---
 
 
-2:Write a java program to create two separate arrays of integers. Elements of both
-the arrays shall be read from keyboard input. Program should display “Arrays are
-symmetrical” if both the arrays contain equal numbers of even and odd numbers.
+<pre>
+2:Write a java program to create two separate arrays of integers. Elements of both the arrays shall be read from keyboard input. Program should display “Arrays are symmetrical” if both the arrays contain equal numbers of even and odd numbers.
+</pre>
 
 
 ```java

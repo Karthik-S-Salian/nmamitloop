@@ -7,11 +7,9 @@ sem: 3
 type: program
 ---
 
-1. Build a program called “GuessMyNumber”. The computer will generate a
-random number between 1 and 10. The user types in a number and the computer
-replies “lower” if the random number is lower than the guess, “higher” if the
-random number is higher , and “correct!” if the guess is correct. The player can
-continue guessing until the guess is right.
+<pre>
+1. Build a program called “GuessMyNumber”. The computer will generate a random number between 1 and 10. The user types in a number and the computer replies “lower” if the random number is lower than the guess, “higher” if the random number is higher , and “correct!” if the guess is correct. The player can continue guessing until the guess is right.
+</pre>
 
 ```java
 package javapgrm;

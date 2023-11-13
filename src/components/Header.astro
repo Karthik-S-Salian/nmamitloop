@@ -23,27 +23,49 @@
         font-size: 1.2rem;
     }
 
-    header nav {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
+    .install {
+        border-radius: 20px;
+        background-color: rgb(119, 0, 255);
+        padding: 0.35em 1.1em;
+        font-weight: 600;
     }
 
-    .install{
-        border-radius: 20px;
-        background-color:rgb(119, 0, 255);
-        padding: .35em 1.1em;
-        font-weight: 600;
+    header nav {
+        display: none;
+
+        & a {
+            transition: all 0.2s ease-in;
+        }
+
+        & a:hover {
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #fff,
+                0 0 20px gold,
+                0 0 35px gold,
+                0 0 40px gold,
+                0 0 60px gold,
+                0 0 90px gold;
+        }
+    }
+
+    @media (min-width: 450px) {
+        header nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
     }
 </style>
 
 <script>
-
-    interface PromptEvent extends Event{ //fake interface to shutup type error
-        userChoice:{
-            "outcome":string
-        }
-        prompt():void;
+    interface PromptEvent extends Event {
+        //fake interface to shutup type error
+        userChoice: {
+            outcome: string;
+        };
+        prompt(): void;
     }
 
     const footerLink = document.querySelector(".footer-link");
@@ -54,17 +76,17 @@
         footer?.scrollIntoView({ behavior: "smooth" });
     });
 
-    let deferredPrompt:PromptEvent|null;
-    window.addEventListener('beforeinstallprompt', (e) => {
+    let deferredPrompt: PromptEvent | null;
+    window.addEventListener("beforeinstallprompt", (e) => {
         deferredPrompt = e as PromptEvent;
     });
 
-    const installApp = document.querySelector('.install');
-    installApp?.addEventListener('click', async () => {
+    const installApp = document.querySelector(".install");
+    installApp?.addEventListener("click", async () => {
         if (deferredPrompt !== null) {
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
+            if (outcome === "accepted") {
                 deferredPrompt = null;
             }
         }

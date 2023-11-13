@@ -29,6 +29,7 @@ fi
 ```
 
 ## Output
+<pre>
 $ sh P3b.sh
 No arguments
 
@@ -38,6 +39,7 @@ Another line with the search_pattern.
 
 $ sh P3b.sh another_pattern non_existent_file.txt
 File 'non_existent_file.txt' does not exist
+</pre>
 
 ## Summary
 This script searches for a pattern within a file specified in the command line arguments. It demonstrates command-line argument handling, file existence checking, and pattern matching.

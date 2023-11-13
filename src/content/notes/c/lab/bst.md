@@ -7,11 +7,13 @@ sem: 3
 type: program
 ---
 
+<pre>
 Design, Develop and Implement a menu driven Program in C for the following operations on Binary Search Tree(BST) of Integers
 1. Create a BST of N Integers: 6, 9, 5, 2, 8, 15, 24, 14, 7, 8, 5, 2
 2. Traverse the BST in Inorder, Preorder and Post Order
 3. Search the BST for a given element (KEY) and report the appropriate message
 4. Exit
+</pre>
 
 ```c
 #include <stdio.h>

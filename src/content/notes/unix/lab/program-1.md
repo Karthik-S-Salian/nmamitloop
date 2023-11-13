@@ -36,12 +36,14 @@ else
 fi
 ```
 ## Output 
-Please enter three numbers\
-6\
-7\
-3\
-7 is the largest number\
+<pre>
+Please enter three numbers
+6
+7
+3
+7 is the largest number
 3 is the smallest number
+</pre>
 
 
 ## Summary

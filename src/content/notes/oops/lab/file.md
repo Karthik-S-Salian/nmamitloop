@@ -7,9 +7,9 @@ sem: 3
 type: program
 ---
 
-Write a program that will count the number of characters, words, and lines in a file.
-Words are separated by a white-space character. Your program should prompt the
-user to enter a filename.
+<pre>
+Write a program that will count the number of characters, words, and lines in a file. Words are separated by a white-space character. Your program should prompt the user to enter a filename.
+</pre>
 
 ```java
 import java.util.*;
