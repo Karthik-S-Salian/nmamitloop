@@ -7,6 +7,19 @@
             Aliquid voluptatem atque, expedita minus adipisci harum doloribus
             quia commodi saepe aut.
         </p>
+
+        <div>
+            <p>Support this project ⬇️</p>
+            <a
+                class="bmc-button"
+                target="_blank"
+                href="https://www.buymeacoffee.com/karthikssalian"
+                ><img
+                    src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
+                    alt="Buy me a coffee"
+                /><span style="margin-left:5px">Buy me a coffee ❤️</span></a
+            >
+        </div>
         <div class="social-links">
             <a
                 href="https://www.instagram.com/karthik_s_.salian/"
@@ -17,7 +30,10 @@
             <a href="https://github.com/Karthik-S-Salian" target="_blank">
                 <img src="/nmamitloop/icons/github.svg" alt="github" />
             </a>
-            <a href="https://www.linkedin.com/in/karthik-salian-3a7a26246/" target="_blank">
+            <a
+                href="https://www.linkedin.com/in/karthik-salian-3a7a26246/"
+                target="_blank"
+            >
                 <img src="/nmamitloop/icons/linkedin.svg" alt="linkedin" />
             </a>
         </div>
@@ -53,5 +69,42 @@
         border-radius: 10%;
         padding: 0;
         object-fit: cover;
+    }
+
+    .bmc-button img {
+        width: 27px;
+        aspect-ratio: 1;
+    }
+
+    .bmc-button {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        background-color: rgb(255, 221, 0);
+        color: black;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        border-radius: 5px;
+        transition: all 250ms ease-in-out;
+    }
+    .bmc-button:hover,
+    .bmc-button:active,
+    .bmc-button:focus {
+        background-color: rgb(255, 217, 0);
+    }
+    
+    .arrow {
+        position: relative;
+        animation: 3s infinite alternate slidein;
+    }
+
+    @keyframes bounce {
+        0%{
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-80px);
+        }
     }
 </style>
