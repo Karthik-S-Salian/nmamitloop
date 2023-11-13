@@ -24,6 +24,7 @@
     }
 
     .install {
+        display: none;
         border-radius: 20px;
         background-color: rgb(119, 0, 255);
         padding: 0.35em 1.1em;
@@ -70,6 +71,7 @@
 
     const footerLink = document.querySelector(".footer-link");
     const footer = document.getElementById("footer");
+    const installApp = document.querySelector(".install") as HTMLButtonElement;
     footerLink?.addEventListener("click", function (event) {
         event.preventDefault();
 
@@ -79,9 +81,10 @@
     let deferredPrompt: PromptEvent | null;
     window.addEventListener("beforeinstallprompt", (e) => {
         deferredPrompt = e as PromptEvent;
+        installApp.style.display = "initial";
     });
 
-    const installApp = document.querySelector(".install");
+    
     installApp?.addEventListener("click", async () => {
         if (deferredPrompt !== null) {
             deferredPrompt.prompt();
@@ -91,4 +94,5 @@
             }
         }
     });
+
 </script>
