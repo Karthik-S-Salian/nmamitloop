@@ -7,6 +7,18 @@ sem: 3
 type: program
 ---
 
+## Question
+
+<pre>
+Design, Develop and Implement a menu driven Program in C for the following operations on Priority QUEUE of Characters (Array Implementation of Queue with maximum size MAX)
+1. Insert an Element on to Priority QUEUE
+2. Delete an Element from Priority QUEUE
+3. Demonstrate Overflow and Underflow situations on Priority QUEUE
+4. Display the status of Priority QUEUE
+5. Exit
+Support the program with appropriate functions for each of the above operations
+</pre>
+
 ```c
 #include <stdio.h>
 

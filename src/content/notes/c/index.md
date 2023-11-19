@@ -9,6 +9,10 @@ type: index
 
 ## Theory
 
+<strong>Unit 1</strong>
+[1_A](/nmamitloop/resources/3/coa/1_A)
+[1_B](/nmamitloop/resources/3/coa/1_B)
+
 
 ***
 
@@ -28,7 +32,9 @@ type: index
 
 7. [write a c program to implement tower of henoi](/nmamitloop/notes/subjects/c/lab/toh)
 
-8. [Write a c program to implenet circular queue using array.](/nmamitloop/notes/subjects/c/lab/circular_queue)
+8. [Write a c program to implemenet circular queue using array.](/nmamitloop/notes/subjects/c/lab/circular_queue)
+
+8. [Write a c program to implemenet priority queue using array.](/nmamitloop/notes/subjects/c/lab/priority_queue)
 
 9. [Write a c program to demostrate singly linked list](/nmamitloop/notes/subjects/c/lab/sll)
 

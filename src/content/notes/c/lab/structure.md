@@ -95,6 +95,4 @@ int main(){
     studentwise_totalmarks(students,size);
     subjectwise_totalmarks(students,size);
 }
-
-
 ```
