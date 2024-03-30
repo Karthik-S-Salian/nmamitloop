@@ -1,0 +1,49 @@
+
+    [
+    {
+        "program": "Program 1",
+        "question": "Write a Bash script that takes three numbers as input and determines the largest and smallest numbers among them.",
+        "code": "#!/bin/bash\n\necho \"Please enter three numbers\"\nread x\nread y\nread z\n\nif [ $x -ge $y ] && [ $x -ge $z ]; then\n    echo \"$x is the largest number\"\nelif [ $y -ge $x ] && [ $y -ge $z ]; then\n    echo \"$y is the largest number\"\nelse\n    echo \"$z is the largest number\"\nfi\n\nif [ $x -lt $y ] && [ $x -lt $z ]; then\n    echo \"$x is the smallest number\"\nelif [ $y -lt $x ] && [ $y -lt $z ]; then\n    echo \"$y is the smallest number\"\nelse\n    echo \"$z is the smallest number\"\nfi",
+        "output": "Please enter three numbers\n6\n7\n3\n7 is the largest number\n3 is the smallest number",
+        "conceptual_summary": "This script illustrates input/output handling and conditional statements. It prompts users for three numbers, uses 'read' to input data, and employs conditional statements (if-else) to find the largest and smallest numbers."
+    },
+    {
+        "program": "Program 2",
+        "question": "Create a Bash script to check if one number is divisible by another.",
+        "code": "#!/bin/sh\n\necho \"Enter the dividend:\"\nread n\necho \"Enter the divisor:\"\nread m\n\nif [ $((n % m)) -eq 0 ]; then\n    echo \"$n is divisible by $m\"\nelse\n    echo \"$n is not divisible by $m\"\nfi",
+        "output": "Enter the dividend:\n66\nEnter the divisor:\n2\n66 is divisible by 2",
+        "conceptual_summary": "This script checks divisibility using the modulo operator (%). It demonstrates user input with 'read,' conditional statements for checking divisibility, and arithmetic operations."
+    },
+    {
+        "program": "Program 3",
+        "question": "Write a Bash script that searches for a pattern in a file. The pattern and filename should be provided as arguments.",
+        "code": "#!/bin/sh\n\nif [ $# -eq 0 ]; then\n    echo \"No arguments\"\nelse\n    grep \"$1\" $2\nfi",
+        "output": "No arguments",
+        "conceptual_summary": "This program showcases command-line argument processing and file searching using 'grep,' a key function for text pattern matching in files."
+    },
+    {
+        "program": "Program 4",
+        "question": "Create a Bash script that performs basic arithmetic operations based on user input.",
+        "code": "#!/bin/sh\n\necho \"Options are:\"\necho \"+: add\"\necho \"-: subtract\"\necho \"*: multiply\"\necho \"/: divide\"\n\necho \"Enter the two numbers:\"\nread a\nread b\necho \"Enter your choice:\"\nread ch\ncase $ch in\n    +) y=$(expr $a + $b)\n       echo \"SUM: $y\";;\n    -) y=$(expr $a - $b)\n       echo \"DIFF: $y\";;\n    *) echo \"Invalid choice\";;\nesac",
+        "output": "Options are:\n+: add\n-: subtract\n*: multiply\n/: divide\nEnter the two numbers:\n6\n4\nEnter your choice:\n+\nSUM: 10",
+        "conceptual_summary": "This script allows users to perform arithmetic operations using a menu system and 'case' statements for user choice. It employs 'expr' for arithmetic operations and user input."
+    },
+    {
+        "program": "Program 5",
+        "question": "Write a Bash script that analyzes a string, displaying its length and extracting substrings.",
+        "code": "#!/bin/sh\n\necho \"Enter the string:\"\nread string\nif [ -z \"$string\" ]; then\n    echo \"Null string\"\nelse\n    z=$(expr \"$string\" : '.*')\n    echo \"String length is $z\"\n    if [ $z -ge 6 ]; then\n        p=$(expr \"$string\" : '\\(...\\)')\n        q=$(expr \"$string\" : '.*\\(...\\)')\n        echo \"The first three characters are $p\"\n        echo \"The last three characters are $q\"\n    fi\nfi",
+        "output": "Enter the string:\nnnamitnitte\nString length is 11\nThe first three characters are nna\nThe last three characters are tte",
+        "conceptual_summary": "This program processes a string, calculates its length using 'expr' and extracts substrings using 'expr' and regular expressions. It employs 'expr' and regular expressions for text manipulation."
+    },
+    
+    {
+        "program": "Program 6",
+        "question": "Create a Bash script that analyzes a string's length and extracts substrings, with additional handling for short strings.",
+        "code": "#!/bin/sh\necho \"Enter the string:\"\nread str\nt=$(expr \"$str\" : '.*')\necho \"The length of the string is $t\"\nif [ $t -ge 6 ]; then\n    p=$(expr \"$str\" : '\\(...\\)')\n    q=$(expr \"$str\" : '.*\\(...\\)')\n    echo \"The first three characters are $p\"\n    echo \"The last three characters are $q\"\nelse\n    echo \"The length of the string is less than 6\"\nfi",
+        "output": "Enter the string:\nasdfghjkl\nThe length of the string is 9\nThe first three characters are asd\nThe last three characters are jkl",
+        "conceptual_summary": "This script analyzes a string's length and extracts substrings using 'expr.' It includes conditional statements for handling short strings, adding depth to the concept of string manipulation."
+    }
+   
+   
+]
+

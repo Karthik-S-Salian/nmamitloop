@@ -1,0 +1,51 @@
+[
+    {
+        "program": "AWK Program 1",
+        "question": "Design an AWK program to provide an extra symbol (e.g., * or @) at the end of each line (if required) so that the line length is maintained as 127.",
+        "code": "{\n    y = 127 - length($0)\n    printf \"%s\", $0\n    if (y > 0)\n        for(i=0;i < y; i++)\n            printf \"%s\",\"*\"\n    printf \"\\n\"\n}",
+        "output": "$ gedit pgm.awk\n$ cat > input.txt\nabc\ndefg\n^Z\n[3]+ Stopped        cat > input.txt\n$ awk -f program1.awk input.txt\nabc**********************************till line ends\ndefg*********************************till line ends",
+        "conceptual_summary": "This AWK program reads lines from an input file and adds extra symbols (asterisks) at the end to maintain a line length of 127 characters."
+    },
+    {
+        "program": "AWK Program 2",
+        "question": "Design an Awk script to delete duplicated lines from a text file. The order of the original must remain unchanged.",
+        "code": "BEGIN {\n    n = 1\n}\n{\n    a[n++] = $0\n}\nEND {\n    for (i = 1; i < n; i++) {\n        flag = 1\n        for (j = 1; j < i; j++)\n            if (a[i] == a[j])\n                flag = 0\n        if (flag == 1)\n            printf(\" %s \\n\", a[i])\n    }\n}",
+        "output": "$ gedit dup.awk\n$ cat>input.txt\nPrincess\nPrincess\nPrince\n^Z\n[3]+ Stopped\ncat > input.txt\nawk -f dup.awk input.txt\nPrincess\nPrince\n",
+        "conceptual_summary": "This AWK program reads lines from an input file and removes duplicate lines while preserving the original order."
+    },
+    {
+        "program": "AWK Program 3",
+        "question": "Write an Awk script that folds long lines into 40 columns. Thus, any line that exceeds 40 characters must be broken after 40 and is to be continued with the residue.",
+        "code": "{\nif (length($0) <= 40)\nprint $0\nelse {\nx = $0\nwhile (length(x) > 40)\n{\nprintf \"%s \n\", substr(x,1,40);\nx = substr(x,41,length(x)-40);\n}\nprintf \"%s \n\", x\n}\n}",
+        "output": "$ gedit column.awk\n$ cat>my.txt\nabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefgh ^Z\n[3]+ Stopped\ncat > my.txt\n$ awk -f column.awk my.txt\nabcdefghijklmnopqrstuvwxyzabcdefghijklmn\nopqrstuvwxyzabcdefgh",
+        "conceptual_summary": "This AWK script breaks long lines into 40 columns, ensuring that any line exceeding 40 characters is split with the residue continued on the next line."
+    },
+    {
+        "program": "Perl Program 1",
+        "question": "Implement a Perl script that prompts the user to input a string and a number, then prints the string that many times, with each string on a separate line.",
+        "code": "print \"string: \";\n$a = <STDIN>;\nprint \"No. of times string to be displayed: \";\nchop($b = <STDIN>);\n$c = $a x $b;\nprint \"Result is: \\n$c\";",
+        "output": "$ gedit 3.pl\n$ perl 3.pl\nstring:ara ara\nNo. of times string to be displayed6\nresult is:\nara ara\nara ara\nara ara\nara ara\nara ara\nara ara\n",
+        "conceptual_summary": "This Perl script prompts the user for a string and a number, then prints the string the specified number of times on separate lines."
+    },
+    {
+        "program": "Perl Program 2",
+        "question": "Implement a Perl script that takes a file as an argument, checks whether the file exists, and prints 'binary' if the file is binary.",
+        "code": "#!/usr/bin/perl\n\ndie(\"You have not entered the arguments\\n\") if (@ARGV == 0);\nforeach $filename (@ARGV) {\n    if (-e $filename) {\n        print(\"File $filename exists\\n\");\n        if (-B $filename) {\n            print(\"Binary file\\n\");\n        }\n        else {\n            print(\"Not a binary file\\n\");\n        }\n    }\n    else {\n        print(\"File $filename does not exist\\n\");\n    }\n}",
+        "output": "$ gedit program2.pl\n$ perl program2.pl abc.txt\nFile abc.txt exists\nNot a binary file",
+        "conceptual_summary": "This Perl script takes a file as an argument, checks its existence, and prints 'binary' if the file is binary; otherwise, it prints 'not a binary file.'"
+    },
+    {
+        "program": "Perl Program 3",
+        "question": "Implement a Perl script that translates its command-line arguments, one per line, after converting all lowercase letters to uppercase.",
+        "code": "#!/usr/bin/perl\n\ndie(\"You have not entered the arguments\\n\") if (@ARGV == 0);\nforeach $arg (@ARGV) {\n    $arg = tr/a-z/A-Z/;\n    printf(\"%s\\n\", $arg);\n}",
+        "output": "$ gedit 1.pl\n$ perl 1.pl abc\nABC\n$ perl 1.pl abc xyz lmn king hat\nABC\nXYZ\nLMN\nKING\nHAT\n$ |",
+        "conceptual_summary": "This Perl script takes command-line arguments, converts all lowercase letters to uppercase, and prints each argument on a separate line."
+    },
+    {
+        "program": "Perl Program 4",
+        "question": "Write a Perl program that takes unsigned numbers as command-line arguments and finds the sum of their digits.",
+        "code": "#!/usr/bin/perl\nforeach $num (@ARGV) {\n    $original_no = $num;\n    $sum = 0;\n    until ($num == 0) {\n        $digit = $num % 10;\n        $sum += $digit;\n        $num = int($num / 10);\n    }\n    print(\"sum of digits of $original_no is $sum\");\n}",
+        "output": "$ cd Downloads\n$ gedit 2.pl\n$ perl 2.pl 123\nsum of digits of 123 is 6",
+        "conceptual_summary": "This Perl program takes unsigned numbers as command-line arguments and calculates the sum of their digits, then prints the result."
+    }
+]
