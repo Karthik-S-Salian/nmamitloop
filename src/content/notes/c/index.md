@@ -1,6 +1,6 @@
 ---
-title: Astro in brief
-description: Find out what makes Astro awesome!
+title: Data Stuctures
+description: Data Stuctures
 branches: ["cs","is"]
 subject : c
 sem: 3
