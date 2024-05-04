@@ -1,12 +1,31 @@
+---
+import hamburgerMenu from "../assets/icons/menu.png";
+import { Image } from "astro:assets";
+---
+
 <header>
     <a href="/nmamitloop/"><h2>NMAMITLOOP</h2></a>
 
-    <nav>
-        <a href="/nmamitloop/">Home</a>
-        <a href="/nmamitloop/#footer" class="footer-link">About</a>
+    <div class="nav-container">
+        <button class="hamburger">
+            <Image
+                src={hamburgerMenu}
+                alt="menu"
+                
+                width={25}
+                height={25}
+            />
+        </button>
+        <nav>
+            <a href="/nmamitloop/">Home</a>
+            <a href="/nmamitloop/bus">bus Timings</a>
+            <a href="/nmamitloop/teachers">Teachers</a>
+            <a href="/nmamitloop/notes">Notes</a>
+            <a href="/nmamitloop/#footer" class="footer-link">About</a>
 
-        <button class="install">Install</button>
-    </nav>
+            <button class="install">Install</button>
+        </nav>
+    </div>
 </header>
 
 <style>
@@ -16,7 +35,7 @@
         padding: 1rem 5%;
         align-items: center;
         justify-content: space-between;
-        background-color: rgb(53, 53, 53);
+        background-color: rgb(17, 21, 50);
     }
 
     header > h1 {
@@ -32,8 +51,6 @@
     }
 
     header nav {
-        display: none;
-
         & a {
             transition: all 0.2s ease-in;
         }
@@ -57,6 +74,50 @@
             align-items: center;
             gap: 1rem;
         }
+
+        .hamburger {
+            display: none;
+        }
+    }
+
+    @media (max-width: 450px) {
+        .nav-container {
+            position: relative;
+
+            & > nav {
+                display: none;
+            }
+
+            &:focus-within {
+                & > nav {
+                    font-size: large;
+                    font-weight: 600;
+                    background-color: rgba(255, 255, 255, 0.86);
+                    color: black;
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    padding: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    border-radius: 8px;
+                    align-items: center;
+                    width: 200px;
+                }
+            }
+        }
+    }
+
+    .hamburger {
+        & img{
+            filter: invert();
+        }
+        background-color: transparent;
+        
+    }
+
+    .nav-container {
     }
 </style>
 
@@ -84,7 +145,6 @@
         installApp.style.display = "initial";
     });
 
-    
     installApp?.addEventListener("click", async () => {
         if (deferredPrompt !== null) {
             deferredPrompt.prompt();
@@ -94,5 +154,4 @@
             }
         }
     });
-
 </script>

@@ -367,7 +367,7 @@
         "name": "Raghunandan K R",
         "branch": "CSE",
         "block": "APJ",
-        "floor": "3",
+        "floor": "5",
         "imgUrl": "https://nitte.edu.in/admin/photo/3/faculty/5/70.jpg"
     },
     {
@@ -436,15 +436,15 @@
     {
         "name": "Shwetha G K",
         "branch": "CSE",
-        "block": "NW",
-        "floor": "0",
+        "block": "APJ",
+        "floor": "4",
         "imgUrl": "https://nitte.edu.in/admin/photo/3/faculty/5/85.jpg"
     },
     {
         "name": "Savitha Shetty",
         "branch": "CSE",
-        "block": "NW",
-        "floor": "0",
+        "block": "APJ",
+        "floor": "5",
         "imgUrl": "https://nitte.edu.in/admin/photo/3/faculty/5/76.jpg"
     },
     {
@@ -478,8 +478,8 @@
     {
         "name": "Sunil Kumar Aithal S",
         "branch": "CSE",
-        "block": "NW",
-        "floor": "0",
+        "block": "CVR",
+        "floor": "3",
         "imgUrl": "https://nitte.edu.in/admin/photo/3/faculty/5/90.jpg"
     },
     {
@@ -520,8 +520,8 @@
     {
         "name": "Anusha Anchan",
         "branch": "CSE",
-        "block": "NW",
-        "floor": "0",
+        "block": "CVR",
+        "floor": "3",
         "imgUrl": "https://nitte.edu.in/admin/photo/3/faculty/5/338.jpg"
     },
     {
