@@ -5,7 +5,7 @@ const notesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description : z.string().optional(),
-    branches: z.array(z.enum(["csf","cs","csc","is","ri","me","aids","aiml","cv","ece","ee"])),
+    branches: z.array(z.enum(["csf","cs","csc","is","ri","me","aids","aiml","cv","ece","ee","cce"])),
     sem:z.number(),
     subject:z.string(),
     type:z.enum(["index","text","program"])

@@ -1,6 +1,6 @@
 ---
 title: Insurance Database
-branches: ["cs","is"]
+branches: ["cs","is","aiml","aids","cce"]
 subject : dbms
 sem: 4
 type: program
