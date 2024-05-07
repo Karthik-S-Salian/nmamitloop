@@ -28,8 +28,6 @@ create Database Insuranc
 
 use Insuranc
 
-
-
 CREATE TABLE PERSON (
 			driverid varchar(10),
 			fname char(15) not null,
@@ -43,12 +41,6 @@ insert into  PERSON values ('112','Ramesh Babu' , 'KP Nagar, Udupi -13')
 insert into  PERSON values ('113','Raju SK' , 'KS Circle, Mangalore-12')
 insert into  PERSON values ('114','Ramesh Babu' , 'AS Road, Bangalore-14')
 insert into  PERSON values ('115','Alica wallace' , 'SS Road, Karkala-16')
-
-
-
-select * from PERSON
-
-
 
 CREATE TABLE CAR (
 			regno varchar(10),
@@ -68,8 +60,6 @@ insert into  CAR values ('KL-15','TOYATA' ,2001)
 insert into  CAR values ('KL-4','INDIGO' ,2001)
 insert into  CAR values ('AP-05','SANTRO' ,2001)
 
-select * from CAR
-
 CREATE TABLE ACCIDENT  (
 			reportno int ,
 			accdate datetime,
@@ -87,7 +77,6 @@ insert into  ACCIDENT values (6,'1990-09-09','Udupi')
 insert into  ACCIDENT values (15,'1981-07-22' ,'Udupi')
 
 select * from ACCIDENT
-delete from ACCIDENT
 
 insert into  ACCIDENT values (7,'1981-09-09','Karkala')
 insert into  ACCIDENT values (8,'1990-09-09','Bhatkal')
@@ -97,9 +86,6 @@ insert into  ACCIDENT values (11,'1998-01-02','Bhatkal')
 insert into  ACCIDENT values (13,'1998-07-22','Udupi')
 insert into  ACCIDENT values (14,'1998-07-22','Karkala')
 
-
-delete from ACCIDENT
-
 CREATE TABLE OWNS    (
 			driverid varchar(10) ,
 			regno varchar(10)
@@ -108,12 +94,6 @@ CREATE TABLE OWNS    (
 			foreign key(regno) references CAR(regno)on delete cascade on update cascade,
 			unique(regno)
 		    )
-
-
-drop table OWNS
-
-select * from PERSON
-select * from car
 
 insert into  OWNS values ('111','KA-13')
 insert into  OWNS values ('111','KA-12')
@@ -130,12 +110,6 @@ insert into  OWNS values ('114','KL-4')
 
 insert into  OWNS values ('115','MH-14')
 
-
-select * from OWNS
-
-delete from OWNS
-
-drop table PARTCIPATED
 CREATE TABLE PARTCIPATED (
 			   driverid varchar(10) ,
 			   regno varchar(10),
@@ -148,11 +122,6 @@ CREATE TABLE PARTCIPATED (
 			   foreign key(driverid,regno) references OWNS(driverid,regno),
 			   unique(reportno) 
 			 )
-
-
-drop table  PARTCIPATED
-
-select * from accident
 
 insert into  PARTCIPATED values ('111','KA-12',1,20000)
 insert into  PARTCIPATED values ('111','KA-13',2,10000)
@@ -179,8 +148,6 @@ select * from CAR
 select * from ACCIDENT
 select * from OWNS
 select * from PARTCIPATED 
-
-
 
 ************************Lab Queries***********************
 --1. Find the total number of people who

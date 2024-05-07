@@ -23,25 +23,6 @@ BORROWER (customer-name: string, loan-number: int)
 
 
 ```sql
- 
-
-V.  Consider the following database for a banking enterprise:
-BRANCH (branch-name: string, branch-city: string, assets: real)
-ACCOUNT (accno: int, branch-name: string, balance: real)
-DEPOSITOR (customer-name: string, accno: int)
-CUSTOMER (customer-name: string, customer-street: string, customer-city: string)
-LOAN (loan-number: int, branch-name: string, amount: real)
-BORROWER (customer-name: string, loan-number: int)
-
-
-1.	Find all the customers who have atleast 2  accounts 
-    at all the branches located in a specific city.
-2.	Find all the customers who have accounts in atleast 
-    1 branch located in all the cities
-3.	Find all the customers who have accounts in atleast
-    2 branches located in a specific city.
-
-
 create database  bank
 
 use bank
@@ -59,12 +40,8 @@ insert into BRANCH values('SBI_Kavoor','Mangalore',300000)
 insert into BRANCH values('SBI_Kottara','Mangalore',500000)
 insert into BRANCH values('SBI_Padubidri','Udupi',500000)
 insert into BRANCH values('SBI_Kaup','Udupi',500000)
-#insert into BRANCH values('TESTleftjoin','Udupi',500000)
+insert into BRANCH values('TESTleftjoin','Udupi',500000)
 
-	
-delete from BRANCH
-
-select * from BRANCH
 
 create table ACCOUNT(
 			accno int, 
@@ -73,8 +50,6 @@ create table ACCOUNT(
 			primary key(accno),
 			foreign key(bname) references BRANCH(bname) on delete cascade on update cascade
 		    )			
-			
-select * from BRANCH
 
 insert into ACCOUNT values(111,'SBI_Kanthavara',6000)
 insert into ACCOUNT values(222,'SBI_Kaup',10000)
@@ -83,17 +58,6 @@ insert into ACCOUNT values(444,'SBI_Kottara',17000)
 insert into ACCOUNT values(555,'SBI_Padubidri',111000)
 insert into ACCOUNT values(666,'SBI_PortRoad',456000)
 insert into ACCOUNT values(777,'SBI_Nitte',456000)
-
-insert into ACCOUNT values(1001,'SBI_Kanthavara',6000)
-insert into ACCOUNT values(1002,'SBI_Kaup',10000)
-insert into ACCOUNT values(1003,'SBI_Kavoor',300000)
-insert into ACCOUNT values(1004,'SBI_Kottara',17000)
-insert into ACCOUNT values(1005,'SBI_Padubidri',111000)
-insert into ACCOUNT values(1006,'SBI_PortRoad',456000)
-insert into ACCOUNT values(1007,'SBI_Nitte',456000)
-
-
-select * from ACCOUNT
 
 create table CUSTOMER(
 			cname varchar(20)primary key,
@@ -108,10 +72,6 @@ insert into CUSTOMER values('Charles','4th block','mangalore')
 insert into CUSTOMER values('Divya','456 nagar','mangalore')
 insert into CUSTOMER values('Sinchan','452 street','Udupi')
 insert into CUSTOMER values('Ganya','452 street','Udupi')
-
-
-select * from CUSTOMER
- 
 
 create table DEPOSITOR(
 			cname varchar(20),
@@ -137,7 +97,6 @@ insert into DEPOSITOR values('Ganya',1005)
 insert into DEPOSITOR values('Ganya',1006)
 insert into DEPOSITOR values('Ganya',1007)
 
-select * from depositor
 
 create table LOAN (
 			loanno int, 
@@ -157,8 +116,6 @@ insert into LOAN values(55,'SBI_Nitte',12000)
 insert into LOAN values(66,'SBI_Padubidri',10000)
 insert into LOAN values(77,'SBI_PortRoad',20000)
 
-select * from LOAN
-
 create table BORROWER(
 			cname varchar(20),
 			loanno int
@@ -167,11 +124,6 @@ create table BORROWER(
 			foreign key(loanno) references LOAN(loanno) on delete cascade on update cascade,
 			unique(loanno)
 			)
-
-select * 
-from ACCOUNT A, DEPOSITOR D,LOAN L
-where A.accno=D.accno and L.bname=A.bname
-
 
 insert into BORROWER values('Anvesh',11)
 insert into BORROWER values('Bindiya',22)
@@ -185,10 +137,9 @@ select * from BORROWER
 
 *******************Lab Queries******************************
 
-1.	Find all the customers who have atleast 2  accounts 
-    at all the branches located in a specific city.
+--Find all the customers who have atleast 2  accounts 
+--at all the branches located in a specific city. 
 
-	
 SELECT DISTINCT D1.cname
 FROM DEPOSITOR D1
 JOIN ACCOUNT A1 ON D1.accno = A1.accno
@@ -207,20 +158,20 @@ WHERE NOT EXISTS (
 GROUP BY D1.cname
 HAVING COUNT(DISTINCT A1.bname) >= 2;
 
-2.	Find all the customers who have accounts in atleast 
-    1 branch located in all the cities
+--2.	Find all the customers who have accounts in 
+--atleast 1 branch located in all the cities
 	
-	select cname 
-	from CUSTOMER C
-	where  not exists(select distinct bcity
-	from BRANCH where bcity not in(select B.bcity
-	                              from BRANCH B, ACCOUNT A, DEPOSITOR D
-								  where D.accno=A.accno 
-								  and A.bname= B.bname
-								  and D.cname=C.cname))
+select cname 
+from CUSTOMER C
+where  not exists(select distinct bcity
+from BRANCH where bcity not in(select B.bcity
+                                from BRANCH B, ACCOUNT A, DEPOSITOR D
+                                where D.accno=A.accno 
+                                and A.bname= B.bname
+                                and D.cname=C.cname))
 
-3.	Find all the customers who have accounts in atleast
-    2 branches located in a specific city.
+--3.	Find all the customers who have accounts in atleast
+--    2 branches located in a specific city.
 
 SELECT DISTINCT D.cname
 FROM DEPOSITOR D
@@ -230,7 +181,7 @@ WHERE B.bcity = 'Mangalore'
 GROUP BY D.cname
 HAVING COUNT(DISTINCT B.bname) >= 2;
 
-*********************VIEWS IN SQL**********************
+/*********************VIEWS IN SQL**********************/
 
 CREATE VIEW HighValueAccounts AS
 SELECT accno, bname, balance

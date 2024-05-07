@@ -60,8 +60,6 @@ insert into C_ORDER values (208,'2008-12-01', 111,null)
 insert into C_ORDER values (200,'2008-11-01', 111,null)
 insert into C_ORDER values (210,'2008-10-01', 111,null)
 
-
-delete from C_ORDER where orderid=211
 select * from C_ORDER
 
 CREATE TABLE ITEM (
@@ -77,7 +75,6 @@ insert into ITEM values (304,5000)
 insert into ITEM values (305,4000)
 
 
-
 CREATE TABLE ORDER_ITEM (
 			orderid int,
 			itemid int,
@@ -86,10 +83,9 @@ CREATE TABLE ORDER_ITEM (
 			foreign key(orderid) references C_ORDER(orderid) on delete cascade on update cascade,
 			foreign key(itemid) references ITEM(itemid) on delete cascade on update cascade
 			)
+
 insert into ORDER_ITEM values (200,301,1)
 insert into ORDER_ITEM values (200,305,2)
-
-
 insert into ORDER_ITEM values (201,301,2)
 insert into ORDER_ITEM values (201,302,4)
 insert into ORDER_ITEM values (201,303,4)
@@ -102,33 +98,19 @@ insert into ORDER_ITEM values (204,305,2)
 insert into ORDER_ITEM values (205,301,3)
 insert into ORDER_ITEM values (206,301,5)
 
-
-select * from C_ORDER
-select * from ORDER_ITEM
-select * from ITEM
-update C_ORDER set ordamt = (select sum(O.qty * T.price) 
-                             from ORDER_ITEM O, ITEM T
-                             where O.itemid = T.itemid 
-							 and O.orderid = 200)
-where orderid = 200
-
-select * from ORDER_ITEM O, ITEM T
-       where O.itemid = T.itemid 
-
-
-
 CREATE TABLE WAREHOUSE (
 			warehouseid int,
 			city varchar(20)not null,
 			primary key (warehouseid)
 		   )
 
-
 insert into WAREHOUSE values (1,'MAGALORE')
 insert into WAREHOUSE values (2,'MAGALORE')
 insert into WAREHOUSE values (3,'MAGALORE')
 insert into WAREHOUSE values (4,'UDUPI')
 insert into WAREHOUSE values (5,'UDUPI')
+insert into WAREHOUSE values (6,'KARKALA')
+
 CREATE TABLE SHIPMENT (
 			orderid int,
 			warehouseid int,
@@ -150,8 +132,6 @@ insert into SHIPMENT values (203,2,'2004-02-01')
 insert into SHIPMENT values (203,3,'2004-02-01')
 insert into SHIPMENT values (204,4,'2004-06-02')
 insert into SHIPMENT values (204,2,'2004-06-02')
-
-insert into WAREHOUSE values (6,'KARKALA')
 
 
 select * from C_ORDER

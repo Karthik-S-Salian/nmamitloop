@@ -23,23 +23,6 @@ alphabetical order for courses offered by th ‘CS’ department that use more t
 
 
 ```sql
-Consider the following database of student enrollment in courses & books adopted for each course:
-
-STUDENT (regno: string, name: string, major: string, bdate: date)
-COURSE (course #: int, cname: string, dept: string)
-ENROLL (regno: string, course#: int, sem: int marks: int)
-BOOK _ ADOPTION (course#: int, sem: int, book-ISBN: int)
-TEXT (book-ISBN: int, book-title: string, publisher: string, author: string)
-
-1.	Produce a list of text books (include Course #, Book-ISBN,Book-title) 
-	in the alphabetical order for courses offered by th ‘CS’ 
-	department that use more than two books.
-2.	List any department that has all its adopted books 
-	published by a specific publisher.
-3.	List the bookISBNs and book titles of the department that 
-	has maximum number of students
-
-
 create database student
 
 use student
@@ -100,8 +83,6 @@ insert into TEXTBOOK  values (207,'Thermodynamics','McGraw','Alfred')
 insert into TEXTBOOK  values (209,'Electronic Circuits','McGraw','Alfred')
 insert into TEXTBOOK  values (210,'Circuits Theory','McGraw','Alfred')
 
-select * from TEXTBOOK
-
 create table BOOKADAPTION (
 			course int,
 			sem int,
@@ -157,11 +138,11 @@ select * from BOOKADAPTION
 select * from ENROLL
 
 
-1. Produce a list of text books 
-(include Course #, Book-ISBN,
-   Book-title) in the alphabetical 
-   order for courses offered by the    
-   ‘CS’ department that use more than two books.
+--1. Produce a list of text books 
+-- (include Course #, Book-ISBN,
+--  Book-title) in the alphabetical 
+--  order for courses offered by the    
+-- ‘CS’ department that use more than two books.
 
    	  
 select A.bookISBN, A.title,B.course,B.cname  
@@ -175,25 +156,8 @@ and B.course in (select course
 order by A.title;
 
 
-
-
-select * from BOOKADAPTION
-
-                    select course,COUNT(bookISBN)
-					from BOOKADAPTION 
-					group by course 
-					having
-					count(bookISBN)>=2
-
--
-select * from COURSE
-select * from BOOKADAPTION
--2. List any department that has all its 
+--2. List any department that has all its 
 --adopted books published by a specific publisher.
-
-
-select * from COURSE
-select * from BOOKADAPTION
 
   
 select distinct(C.dept) 
@@ -201,17 +165,15 @@ from course C
 where not exists (select bookISBN 
                   from  BOOKADAPTION 
                   where  course in(select course 
-                                   from  course 
-                                    where dept = C.dept 
-                                    and bookISBN 
-									not in                                                                                                       
-                                     (select bookISBN
-							 from TEXTBOOK where 
-							 publisher='McGraw')   
+				  from  course 
+				  where dept = C.dept)
+                and bookISBN not in (select bookISBN 
+				from TEXTBOOK 
+				where publisher='McGraw')   
 		  ) 
 
 
-OR
+--OR
 
 select distinct(C1.dept) 
 from course C1

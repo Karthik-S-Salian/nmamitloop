@@ -138,14 +138,9 @@ select * from PUBLISHER
 
 **********************LAB Queries******************************
 
-1.	Find the author of the book which has maximum sales.
-2.	Increase the price of the books published by a specific publisher by 10%
-3.	Find the number of orders for the book that has minimum sales. 
+--1.  Find the author of the book which has maximum sales.
 
-
-1.  Find the author of the book which has maximum sales.
-Solution1:
-
+--Solution 1: 
 select A.authorid ,A.aname  ,A.city ,C.bookid,
 sum(O.qty) as QTY_SUM   
 from author A, CATALOGUE C,order_det O 
@@ -157,7 +152,7 @@ having sum(qty) >= all (select sum(qty)
 						group by bookid)
 
 
-Solution 2:
+--Solution 2:
 create view V1 as 
 select A.authorid ,A.aname  ,A.city ,C.bookid,sum(O.qty) 
 as QTY_SUM  from author A, CATALOGUE C,order_det O 
@@ -168,7 +163,7 @@ group by A.authorid, A.aname,A.city,C.bookid
 select * from  V1   where QTY_SUM = (select max(QTY_SUM) from temp)
 
 
-Solution 3:
+--Solution 3:
 select A.authorid ,A.aname  ,A.city ,C.bookid,sum(O.qty)
 as QTY_SUM into tb_auth1  
 from AUTHOR A, CATALOGUE C,ORDER_DET O 
@@ -180,20 +175,18 @@ select * from  tb_auth   where QTY_SUM in (select max(QTY_SUM) from tb_auth)
 
 
 
-2. Increase the price of the books published by a specific publisher by 10%
+--2. Increase the price of the books published by a specific publisher by 10%
 
 update  CATALOGUE set price = price * 1.1 
 where pubid in ( select pubid from publisher where pname ='Pearson')
 
-3.	Find the number of orders for the book that has minimum sales. 
+--3.	Find the number of orders for the book that has minimum sales. 
 
-select * from ORDER_DET
-
-select ordno, bookid, sum(qty) as Qty_ordered
+select bookid, sum(ordno) as NoOfOrders
 from ORDER_DET
-group by ordno,bookid having sum(qty)<ALL(select  sum(qty)
-									from ORDER_DET
-									group by bookid)
+group by ordno,bookid having sum(qty)<=ALL(select  sum(qty)
+                                            from ORDER_DET
+                                            group by bookid)
 
 
 *************************EXTRA PRACTICE QUERIES*********************
