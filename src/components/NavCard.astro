@@ -13,11 +13,8 @@ const { title, icon, to, hue, saturation, delay } = Astro.props;
 ---
 
 <a
-    class="card animate"
+    class="card"
     href={to}
-    style={{
-        transitionDelay: `${delay}ms`,
-    }}
     >
     <div class="content">
         <Image src={icon} alt={title} height={64} width={64} format="webp" />
@@ -77,18 +74,5 @@ const { title, icon, to, hue, saturation, delay } = Astro.props;
     .card:hover .cover {
         opacity: 1;
         height: 100%;
-    }
-
-    .animate{
-        opacity: 0;
-        filter: blur(5px);
-        transform: translateX(-100%);
-        transition: all 1s;
-    }
-
-    .show{
-        opacity: 1;
-        filter: blur(0);
-        transform: translateX(0%);
     }
 </style>

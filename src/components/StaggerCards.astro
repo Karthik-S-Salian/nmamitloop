@@ -1,10 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import NavCard from "@components/NavCard.astro";
+import Card from "@components/Card.astro";
 import busIcon from "@assets/icons/icons8-bus-64.png";
 import navIcon from "@assets/icons/icons8-map-marker-64.png";
 import notesIcon from "@assets/icons/icons8-notebooks-64.png";
 import teacherIcon from "@assets/icons/teacher.png";
+import Hero from "@components/Hero.astro";
 
 const cards = [
     {
@@ -43,49 +44,35 @@ const cards = [
         <!-- <Hero /> -->
         <!-- <div class="spacer layer1"></div> -->
         <section class="card-container">
-            <css-doodle click-to-update use="var(--rule)"> </css-doodle>
-
             {
-                cards.map((card, index) => {
+                cards.map((card,index) => {
                     return (
-                        <NavCard
+                        <Card
                             title={card.title}
                             icon={card.icon}
                             to={card.to}
                             hue={card.hue}
                             saturation={card.saturation}
-                            delay={index * 200}
+                            delay={index*200}
                         />
                     );
                 })
             }
         </section>
-        <!-- <div class="spacer layer2"></div> -->
+        <div class="spacer layer2"></div>
     </main>
 </Layout>
 
 <style>
     .card-container {
         width: 100%;
-        height: 100vh;
         display: grid;
         grid-template-columns: repeat(auto-fit, 150px);
         place-content: center;
         gap: 2rem;
         min-height: 500px;
-        background-color: #0a0e3e;
-        position: relative;
-        overflow: hidden;
-        padding: 1rem;
-
-        &::before{
-            content: "";
-            position: absolute;
-            inset: 0;
-            border:1rem solid #0a0e3e;
-            z-index: 1;
-            pointer-events: none;
-        }
+        height: 80vh;
+        background-color: #0066ff;
     }
 
     .spacer {
@@ -102,24 +89,18 @@ const cards = [
 
     .layer2 {
         background-image: url("/nmamitloop/wave3.svg");
-        margin: -2px;
-        z-index:2;
-    }
-
-    css-doodle {
-        position: absolute;
-
-        --rule: (
-            @grid: 30 / max(100vh,500px,100vw) / #0a0e3e; 
-            @random {border-left: 1px solid #5d81bc;}
-                @random {border-top: 1px solid #5d81bc;} 
-                @random {filter: drop-shadow(
-                    0 0 10px #fff
-                ) ;} 
-                @random (0.2) {background: linear-gradient(
-                    @p(#fff, tan, #5d81bc),
-                    @lp
-                ) 50% / @r(60%) @lr no-repeat; filter: drop-shadow(0 0 0 #fff) ;}
-        );
     }
 </style>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show")
+            }
+        });
+    });
+
+    const sections = document.querySelectorAll(".animate");
+    sections.forEach(ele=>observer.observe(ele));
+</script>
