@@ -1,6 +1,5 @@
 ---
-title: Astro in brief
-description: Find out what makes Astro awesome!
+title: 5 distance converter
 branches: ["cs","is"]
 subject : oops
 sem: 3

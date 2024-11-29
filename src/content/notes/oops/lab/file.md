@@ -1,6 +1,5 @@
 ---
-title: Astro in brief
-description: Find out what makes Astro awesome!
+title: count the number of characters, words, and lines in a file
 branches: ["cs","is"]
 subject : oops
 sem: 3

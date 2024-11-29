@@ -1,6 +1,5 @@
 ---
-title: Astro in brief
-description: Find out what makes Astro awesome!
+title: Inbuilt exception
 branches: ["cs","is"]
 subject : oops
 sem: 3
